@@ -1,0 +1,12 @@
+/*MyPosts*/
+.myPosts{
+    padding: 20px;
+}
+/*Post*/
+.profileMini{
+    display: flex;
+}
+.profileMini img{
+    border-radius: 50%;
+    width: 50px;
+}

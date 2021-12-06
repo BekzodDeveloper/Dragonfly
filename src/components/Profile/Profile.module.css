@@ -1,0 +1,20 @@
+.profile {
+    background-color: #e8e6e4;
+    /*padding: 20px;*/
+    /*height: 100vh;*/
+}
+.profile__bg img{
+    width: 100%;
+}
+.infoContent{
+    display: flex;
+    padding: 20px;
+}
+
+.ava img{
+    width: 200px;
+}
+.infoDesc{
+    padding: 10px;
+}
+
