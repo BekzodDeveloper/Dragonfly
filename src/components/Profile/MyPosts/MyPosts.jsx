@@ -7,9 +7,9 @@ const MyPosts = (props) => {
         <div className={styles.myPosts}>
             <h3>My post</h3>
             <div className={styles.addPost}>
-                <div><textarea name="" id="" cols="100" rows="2"></textarea></div>
+                <div><textarea name="" id="" cols="60" rows="2"></textarea></div>
                 <div>
-                    <button>Send</button>
+                    <button>Add post</button>
                 </div>
             </div>
 
@@ -21,6 +21,10 @@ const MyPosts = (props) => {
                   message="Lorem10"
                   profileImg="https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg"
                   likesCount="90"/>
+            <Post theme="What kind of coffee I like to drink?"
+                  message="Lorem10"
+                  profileImg="https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg"
+                  likesCount="9"/>
             <Post theme="What kind of coffee I like to drink?"
                   message="Lorem10"
                   profileImg="https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg"

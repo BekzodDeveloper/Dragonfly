@@ -11,18 +11,22 @@
     background-color: #eaeaef;
     padding: 20px;
     border: 1px solid #dd4c42;
-    border-radius: 5px;
+    border-radius: 10px;
 }
-.nav li {
+.item{
     list-style-type: none;
     margin-bottom: 10px;
 }
-.nav a{
+
+.item a{
     color: #dd4c42;
     font-weight: 700;
     text-decoration: none;
     font-size: 20px;
 }
-.nav a:hover{
+.item a:hover{
     color: goldenrod;
 }
+ .active{
+     color: aqua!important;
+ }
