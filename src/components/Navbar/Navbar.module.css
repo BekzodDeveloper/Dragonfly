@@ -1,0 +1,28 @@
+.nav {
+    /*background-color: #eaeaef;*/
+    /*padding: 20px;*/
+    /*border: 1px solid #dd4c42;*/
+    /*border-radius: 5px;*/
+
+
+}
+.nav ul{
+    margin: 0;
+    background-color: #eaeaef;
+    padding: 20px;
+    border: 1px solid #dd4c42;
+    border-radius: 5px;
+}
+.nav li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+.nav a{
+    color: #dd4c42;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 20px;
+}
+.nav a:hover{
+    color: goldenrod;
+}

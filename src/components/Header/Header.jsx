@@ -7,7 +7,7 @@ const Header = (props) => {
         <header className={styles.header}>
             {/*<div className="container">*/}
                 <div>
-                    <img src="https://bekzoddeveloper.uz/images/logo.png"
+                    <img src="https://cryptologos.cc/logos/lto-network-lto-logo.png"
                          alt="logo"/>
                 </div>
             {/*</div>*/}

@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './NavBar.module.css';
+import styles from './Navbar.module.css';
 
 
-const NavBar = (props) => {
+const Navbar = (props) => {
     return (
         <nav className={styles.nav}>
             <ul>
@@ -18,4 +18,4 @@ const NavBar = (props) => {
 }
 
 
-export default NavBar;
+export default Navbar;

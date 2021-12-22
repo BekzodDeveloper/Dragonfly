@@ -5,6 +5,7 @@
 }
 .profile__bg img{
     width: 100%;
+    height: 300px;
 }
 .infoContent{
     display: flex;
@@ -13,6 +14,9 @@
 
 .ava img{
     width: 200px;
+    border-radius: 50%;
+    border:1px solid #dd4c42;
+
 }
 .infoDesc{
     padding: 10px;

@@ -2,15 +2,22 @@ import React from 'react';
 import styles from './Post.module.css';
 
 const Post = (props) => {
-    return(
+    return (
         //Posts
         <div>
             {/*//Post*/}
-            <div className={styles.profileMini}>
-                <div><img
-                    src="https://w7.pngwing.com/pngs/81/570/png-transparent-profile-logo-computer-icons-user-user-blue-heroes-logo-thumbnail.png"
-                    alt="profile"/></div>
-                <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, pariatur!</div>
+            <div className={styles.postBlock}>
+                <div>
+                    <img className={styles.postBlockImg}
+                        src={props.profileImg}
+                        alt="profile"/>
+                </div>
+                <div className={styles.contentInner}>
+                    <div className={styles.theme}>{props.theme}</div>
+                    <div className={styles.message}>{props.message}</div>
+                    <div>Likes: {props.likesCount}</div>
+                </div>
+
             </div>
         </div>
     );
