@@ -1,4 +1,8 @@
-.app-wrapper {
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+body{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 400;
+    background-color: #eaeaef;
 }
 .container{
     max-width: 1360px;

@@ -1,41 +1,59 @@
-.dialogs{
+.dialogs {
     display: grid;
-    grid-template-columns:3fr 9fr;
-    background-color: #eaeaef;
-    border: 1px solid #dd4c42;
-    border-radius: 10px;
+    grid-template-columns: 3fr 9fr;
+    background-color: #00021B;
+    /*border: 1px solid #00021B;*/
+    border-radius: 5px;
 }
-.dialogsList{
-    background-color: #f5f5f5;
-    border-radius: 10px;
-}
-.dialog{
 
+.dialogsList {
+    /*background-color: #f5f5f5;*/
+    /*border-radius: 10px;*/
 }
-.dialogLink{
-    color: #dd4c42;
+
+.userPhoto img {
+    border-radius: 50%;
+    width: 50px;
+}
+.dialog a{
+    color: #fff;
     font-weight: 700;
     text-decoration: none;
     font-size: 18px;
-    padding: 20px;
-    display: block;
+    padding:12px 20px;
+    display: inline-flex;
+    align-items: flex-start;
+    width: 85%;
+    border-radius: 5px;
+    border: 1px solid #00021B;
 }
-.dialogLink:hover{
-    color: goldenrod;
+
+.dialog p{
+    margin: 0 0 0 15px;
+
 }
-.activeLink{
-    color: goldenrod;
+
+.dialog a:hover {
+    color: #00021B;
+    background-color: #fff;
 }
-.messages{
+
+
+.messages {
     padding: 20px;
     border-radius: 10px;
-    
-
-
 }
-.message{
-    padding: 15px;
-    background-color: #fff;
-    border-radius: 20px;
+
+.message {
+    /*padding: 15px;*/
     margin-bottom: 10px;
+}
+.message:nth-child(1).p{
+    text-align: right;
+}
+.messageText{
+    display: inline-block;
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 15px;
 }

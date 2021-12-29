@@ -1,17 +1,17 @@
-.nav {
-    /*background-color: #eaeaef;*/
-    /*padding: 20px;*/
-    /*border: 1px solid #dd4c42;*/
-    /*border-radius: 5px;*/
-
-
-}
 .nav ul{
     margin: 0;
-    background-color: #eaeaef;
-    padding: 20px;
-    border: 1px solid #dd4c42;
+    background-color: #00021B;
+    padding: 20px 0;
     border-radius: 10px;
+    text-align: center;
+}
+.navTitle{
+    margin: 0 0 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: #afa5bb;
+    border-bottom: 1px  solid #afa5bb;
+    text-transform: uppercase;
 }
 .item{
     list-style-type: none;
@@ -19,14 +19,11 @@
 }
 
 .item a{
-    color: #dd4c42;
+    color: #fff;
     font-weight: 700;
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
 }
 .item a:hover{
-    color: goldenrod;
+    color: #AC6AFF;
 }
- .active{
-     color: aqua!important;
- }

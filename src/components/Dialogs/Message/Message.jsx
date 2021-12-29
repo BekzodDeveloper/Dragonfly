@@ -4,7 +4,9 @@ import styles from './../Dialogs.module.css';
 
 const Message = (props) => {
     return (
-        <div className={styles.message}>{props.messageText}</div>
+        <div className={styles.message}>
+            <div className={styles.messageText}>{props.messageText}</div>
+        </div>
     )
 }
 
