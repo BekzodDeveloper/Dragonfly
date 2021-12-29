@@ -30,12 +30,10 @@ const App = (props) => {
                         <Routes>
                             <Route exact path='/' element={<Home/>}/>
                             <Route exact path='/profile' element={
-                                <Profile posts={props.posts}
-                                         profileInfoData={props.profileInfoData}/>}/>
+                                <Profile state={props.state.profilePage}/>}/>
                             <Route path='/dialogs'
                                    element={
-                                       <Dialogs dialogs={props.dialogs}
-                                                messages={props.messages}/>}/>
+                                       <Dialogs state={props.state.dialogPage}/>}/>
                             <Route exact path='/news' element={<News/>}/>
                             <Route exact path='/music' element={<Music/>}/>
                             <Route exact path='/settings' element={<Settings/>}/>

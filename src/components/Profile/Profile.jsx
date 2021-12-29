@@ -9,9 +9,9 @@ const Profile = (props) => {
     return (
         <div className={styles.profile}>
 
-            <ProfileInfo profileInfoData={props.profileInfoData}/>
+            <ProfileInfo profileInfoData={props.state.profileInfoData}/>
 
-            <MyPosts posts={props.posts}/>
+            <MyPosts posts={props.state.posts}/>
         </div>
     )
 }
