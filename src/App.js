@@ -14,11 +14,12 @@ const App = (props) => {
 
     return (
             <div className="app-wrapper">
+
                 <Header/>
                 <div className="app-body">
                     <div className="sidebar">
                         <Nav/>
-                        <FriendsList state={props.state.sidebarPage}/>
+                        {/*<FriendsList state={props.state.sidebarPage}/>*/}
                     </div>
 
                     <div className="app-content">
@@ -33,10 +34,10 @@ const App = (props) => {
                                    element={<Profile state={props.state.profilePage}/>}/>
                             <Route path='/dialogs'
                                    element={<Dialogs state={props.state.dialogPage}/>}/>
-                            <Route exact path='/news' element={<Page title="News"/>}/>
+                            <Route exact path='/notification' element={<Page title="Notification"/>}/>
                             <Route exact path='/music' element={<Page title="Music"/>}/>
                             <Route exact path='/settings' element={<Page title="Settings"/>}/>
-                            <Route exact path='/one' element={<p>One</p>}/>
+                            <Route exact path='/more' element={<Page title="More"/>}/>
                         </Routes>
                     </div>
                 </div>

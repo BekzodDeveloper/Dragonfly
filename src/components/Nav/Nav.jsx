@@ -1,26 +1,35 @@
 import React from 'react';
 import styles from './Nav.module.css';
-import  "./../../styles/active-link.css"
+import "./../../styles/active-link.css"
 import {NavLink} from "react-router-dom";
+import NavItem from "./NavItem/NavItem";
+import homeImg from "./img/home.svg";
+import userImg from "./img/user.svg";
+import messageImg from "./img/messages.svg";
+import notificationImg from "./img/notif.svg";
+import musicImg from "./img/music.svg";
+import settingsImg from "./img/settings.svg";
+import moreImg from "./img/more.svg";
 
 
 const Nav = (props) => {
+
+    let navItems = [
+        {path: "/", icon: homeImg, navText: "Home"},
+        {path: "/profile", icon: userImg, navText: "Profile"},
+        {path: "/messages", icon: messageImg, navText: "Messages"},
+        {path: "/notification", icon: notificationImg, navText: "Notification"},
+        {path: "/music", icon: musicImg, navText: "Music"},
+        {path: "/settings", icon: settingsImg, navText: "Settings"},
+        {path: "/more", icon: moreImg, navText: "More"},
+    ];
+
+    let navItemsEl = navItems.map(n => <NavItem path={n.path} icon={n.icon} navText={n.navText}/>);
+
     return (
         <nav className={styles.nav}>
-            <p className={styles.navTitle}>Menu</p>
             <ul className={styles.list}>
-                <li className={styles.item}><NavLink className="item-link" exact to="/">Home</NavLink>
-                </li>
-                <li className={styles.item}><NavLink className="item-link" exact to="/profile">Profile</NavLink>
-                </li>
-                <li className={styles.item}><NavLink className="item-link" exact to="/dialogs">Messages</NavLink>
-                </li>
-                <li className={styles.item}><NavLink className="item-link" exact to="/news">News</NavLink>
-                </li>
-                <li className={styles.item}><NavLink className="item-link" exact to="/music">Music</NavLink>
-                </li>
-                <li className={styles.item}><NavLink className="item-link" exact to="/settings">Settings</NavLink>
-                </li>
+                {navItemsEl}
             </ul>
 
         </nav>

@@ -26,10 +26,18 @@ p,ul,li{
     display: grid;
     grid-template-columns: 2fr 8fr;
     grid-column-gap: 30px;
+    position: relative;
+
+
 }
 .sidebar{
     max-width: 280px;
     width: 100%;
+    position: sticky;
+    top: 60px;
+    left: 0;
+    height: 100vh;
+
 }
 .app-content{
     width: 100%;
