@@ -1,50 +1,43 @@
 
 .secFriends{
-    margin-top: 20px;
-    /*background-color: #00021B;*/
-    /*padding: 10px;*/
-    /*border-radius: 5px;*/
-    border-radius: 5px;
-    box-shadow: 10px 10px 25px rgba(0, 2, 27, 0.5);
+    margin-top: 40px;
+    width: 100%;
 }
 
 .title{
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    text-align: center;
-    padding: 10px;
-    background-color: #00021B;
-    font-size: 20px;
-    color: #afa5bb;
-    /*border-bottom: 1px solid #afa5bb;*/
-    text-transform: uppercase;
+    /*padding: 10px;*/
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: #828282;
+    margin-bottom: 20px;
 }
 .list{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
-    flex-wrap: wrap;
-    background-color: #eaeaef;
-    border: 1px solid #00021B;
-    border-top: 0;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-
 
 }
 
 .item{
     list-style: none;
-    margin: 5px;
+    margin-bottom: 15px;
     text-align: center;
+    display: flex;
+    align-items: center;
 }
 .userPhoto{
     border-radius: 50%;
-    width: 50px;
+    width: 40px;
 }
 
 .link{
     text-decoration: none;
-    color: #00021B;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    color: #000000;
+
+    display: flex;
+    align-items: center;
+}
+.link p{
+    margin-left: 8px;
 }

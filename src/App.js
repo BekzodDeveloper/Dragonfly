@@ -25,9 +25,9 @@ const App = (props) => {
                     <div className="app-content">
                         <Routes>
                             <Route path='/' element={<Home/>}>
-                                <Route index element={<p>Home</p>}/>
-                                <Route path='/home/create-post' element={<p>Create post</p>}/>
-                                <Route path='/home/friends' element={<p>Friends</p>}/>
+                                {/*<Route index element={<p>Home</p>}/>*/}
+                                {/*<Route path='/home/create-post' element={<p>Create post</p>}/>*/}
+                                {/*<Route path='/home/friends' element={<p>Friends</p>}/>*/}
                             </Route>
 
                             <Route exact path='/profile'
@@ -40,6 +40,9 @@ const App = (props) => {
                             <Route exact path='/more' element={<Page title="More"/>}/>
                         </Routes>
                     </div>
+                    <aside className="aside">
+                        <FriendsList state={props.state.sidebarPage}/>
+                    </aside>
                 </div>
             </div>
 

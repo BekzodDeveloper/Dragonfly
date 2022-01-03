@@ -17,30 +17,36 @@ p,ul,li{
 }
 .app-wrapper{
     position: relative;
+    background-color: #E5E5E5;
 
 }
 .app-body{
     max-width: 1400px;
-    margin: 60px auto 10px;
+    margin: 60px auto 0px;
     padding: 0 15px;
     display: grid;
-    grid-template-columns: 2fr 8fr;
-    grid-column-gap: 30px;
+    grid-template-columns: 2.2fr 7fr 2.5fr;
+    grid-column-gap: 10px;
     position: relative;
-
 
 }
 .sidebar{
-    max-width: 280px;
+    max-width: 250px;
     width: 100%;
     position: sticky;
     top: 60px;
     left: 0;
     height: 100vh;
 
+    background-color: #F0CA3B;
+
 }
 .app-content{
     width: 100%;
     max-width: 1100px;
+}
+.aside{
+    max-width: 270px;
+    width: 100%;
 }
 

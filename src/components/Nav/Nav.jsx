@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './Nav.module.css';
 import "./../../styles/active-link.css"
-import {NavLink} from "react-router-dom";
 import NavItem from "./NavItem/NavItem";
 import homeImg from "./img/home.svg";
 import userImg from "./img/user.svg";
@@ -17,7 +16,7 @@ const Nav = (props) => {
     let navItems = [
         {path: "/", icon: homeImg, navText: "Home"},
         {path: "/profile", icon: userImg, navText: "Profile"},
-        {path: "/messages", icon: messageImg, navText: "Messages"},
+        {path: "/dialogs", icon: messageImg, navText: "Messages"},
         {path: "/notification", icon: notificationImg, navText: "Notification"},
         {path: "/music", icon: musicImg, navText: "Music"},
         {path: "/settings", icon: settingsImg, navText: "Settings"},

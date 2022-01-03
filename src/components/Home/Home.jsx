@@ -12,16 +12,16 @@ const Home = (props) => {
             <div className={styles.head}>
                 <h1>Home</h1>
 
-                <ul className={styles.menuList}>
-                    <li className={styles.item}><NavLink className="item-link" exact to="/">Home</NavLink>
-                    </li>
-                    <li className={styles.item}><NavLink className="item-link" exact to="/home/create-post">Create
-                        post</NavLink>
-                    </li>
-                    <li className={styles.item}><NavLink className="item-link" exact to="/home/friends">Friends</NavLink>
-                    </li>
+                {/*<ul className={styles.menuList}>*/}
+                {/*    <li className={styles.item}><NavLink className="item-link" exact to="/">Home</NavLink>*/}
+                {/*    </li>*/}
+                {/*    <li className={styles.item}><NavLink className="item-link" exact to="/home/create-post">Create*/}
+                {/*        post</NavLink>*/}
+                {/*    </li>*/}
+                {/*    <li className={styles.item}><NavLink className="item-link" exact to="/home/friends">Friends</NavLink>*/}
+                {/*    </li>*/}
 
-                </ul>
+                {/*</ul>*/}
 
             </div>
             <div>
