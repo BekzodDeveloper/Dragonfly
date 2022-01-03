@@ -4,9 +4,6 @@ import {NavLink} from "react-router-dom";
 import {Outlet} from "react-router";
 
 
-const HomeContent = (props) => {
-    return (<div>{props.title}</div>)
-}
 
 const Home = (props) => {
 
@@ -16,12 +13,12 @@ const Home = (props) => {
                 <h1>Home</h1>
 
                 <ul className={styles.menuList}>
-                    <li className={styles.item}><NavLink className="item-link" exact to="/">Overview</NavLink>
+                    <li className={styles.item}><NavLink className="item-link" exact to="/">Home</NavLink>
                     </li>
-                    <li className={styles.item}><NavLink className="item-link" exact to="/create-post">Create
+                    <li className={styles.item}><NavLink className="item-link" exact to="/home/create-post">Create
                         post</NavLink>
                     </li>
-                    <li className={styles.item}><NavLink className="item-link" exact to="/friends">Friends</NavLink>
+                    <li className={styles.item}><NavLink className="item-link" exact to="/home/friends">Friends</NavLink>
                     </li>
 
                 </ul>
@@ -35,7 +32,4 @@ const Home = (props) => {
 }
 
 
-export {
-    Home,
-    HomeContent
-}
+export default  Home;

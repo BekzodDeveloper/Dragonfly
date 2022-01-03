@@ -1,0 +1,50 @@
+
+.secFriends{
+    margin-top: 20px;
+    /*background-color: #00021B;*/
+    /*padding: 10px;*/
+    /*border-radius: 5px;*/
+    border-radius: 5px;
+    box-shadow: 10px 10px 25px rgba(0, 2, 27, 0.5);
+}
+
+.title{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: center;
+    padding: 10px;
+    background-color: #00021B;
+    font-size: 20px;
+    color: #afa5bb;
+    /*border-bottom: 1px solid #afa5bb;*/
+    text-transform: uppercase;
+}
+.list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #eaeaef;
+    border: 1px solid #00021B;
+    border-top: 0;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+
+}
+
+.item{
+    list-style: none;
+    margin: 5px;
+    text-align: center;
+}
+.userPhoto{
+    border-radius: 50%;
+    width: 50px;
+}
+
+.link{
+    text-decoration: none;
+    color: #00021B;
+    font-weight: 500;
+}

@@ -7,8 +7,8 @@ import {NavLink} from "react-router-dom";
 const Nav = (props) => {
     return (
         <nav className={styles.nav}>
-            <ul>
-                <p className={styles.navTitle}>Menu</p>
+            <p className={styles.navTitle}>Menu</p>
+            <ul className={styles.list}>
                 <li className={styles.item}><NavLink className="item-link" exact to="/">Home</NavLink>
                 </li>
                 <li className={styles.item}><NavLink className="item-link" exact to="/profile">Profile</NavLink>

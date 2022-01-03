@@ -6,7 +6,8 @@ import Header from "./components/Header/Header";
 import Nav from "./components/Nav/Nav";
 import Profile from "./components/Profile/Profile";
 import Dialogs from "./components/Dialogs/Dialogs";
-import {Home, HomeContent} from "./components/Home/Home";
+import Home from "./components/Home/Home";
+import FriendsList from "./components/Sidebar/FriendsList";
 
 
 const App = (props) => {
@@ -16,13 +17,17 @@ const App = (props) => {
             <div className="app-wrapper">
                 <Header/>
                 <div className="app-body">
-                    <Nav/>
+                    <div className="sidebar">
+                        <Nav/>
+                        <FriendsList state={props.state.sidebarPage}/>
+                    </div>
+
                     <div className="app-content">
                         <Routes>
                             <Route path='/' element={<Home/>}>
-                                <Route index element={<p>Overview</p>}/>
-                                <Route path='/create-post' element={<p>Create post</p>}/>
-                                <Route path='/friends' element={<p>Friends</p>}/>
+                                <Route index element={<p>Home</p>}/>
+                                <Route path='/home/create-post' element={<p>Create post</p>}/>
+                                <Route path='/home/friends' element={<p>Friends</p>}/>
                             </Route>
 
                             <Route exact path='/profile'
@@ -45,6 +50,5 @@ const App = (props) => {
 const Page = (props) => {
     return (<h1>{props.title}</h1>)
 }
-
 
 export default App;

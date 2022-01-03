@@ -7,3 +7,18 @@
 .header img{
     width: 40px;
 }
+.logoLink{
+    text-decoration: none;
+
+}
+.logoWrapper{
+    display: flex;
+    align-items: center;
+}
+.logoText{
+    margin-left: 10px;
+    color: #7ab4fb;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: 2px;
+}

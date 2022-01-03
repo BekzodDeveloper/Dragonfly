@@ -1,19 +1,27 @@
 .dialogs {
     display: grid;
     grid-template-columns: 3fr 9fr;
-    background-color: #00021B;
     /*border: 1px solid #00021B;*/
     border-radius: 5px;
+
 }
 
 .dialogsList {
-    /*background-color: #f5f5f5;*/
-    /*border-radius: 10px;*/
+    background-color: #00021B;
+    border-radius: 5px;
+    box-shadow: 10px 0px 15px rgba(0, 2, 27, 0.5);
+    z-index: 5;
+    max-width: 280px;
+
 }
 
 .userPhoto img {
     border-radius: 50%;
     width: 50px;
+}
+
+.dialog{
+    max-width: 280px;
 }
 .dialog a{
     color: #fff;
@@ -23,7 +31,7 @@
     padding:12px 20px;
     display: inline-flex;
     align-items: flex-start;
-    width: 85%;
+    width: 100%;
     border-radius: 5px;
     border: 1px solid #00021B;
 }
@@ -41,7 +49,10 @@
 
 .messages {
     padding: 20px;
-    border-radius: 10px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #AC6AFF;
+
 }
 
 .message {

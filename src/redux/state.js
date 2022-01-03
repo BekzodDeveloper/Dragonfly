@@ -69,6 +69,21 @@ let state = {
             {id: 7, messageText: "Assalomu Aleykum! Assalomu Aleykum!"},
             {id: 8, messageText: "Assalomu Aleykum! Assalomu Aleykum!"}
         ]
+    },
+
+    sidebarPage: {
+        friendsList: [
+            {id: 1, name: "Doni", userPhoto: "https://cdn-icons-png.flaticon.com/512/147/147140.png"},
+            {id: 2, name: "Beka", userPhoto: "https://cdn-icons-png.flaticon.com/512/147/147140.png"},
+            {id: 3, name: "Doni", userPhoto: "https://cdn-icons-png.flaticon.com/512/147/147140.png"},
+            {id: 4, name: "Beka", userPhoto: "https://cdn-icons-png.flaticon.com/512/147/147140.png"},
+            {id: 5, name: "Doni", userPhoto: "https://cdn-icons-png.flaticon.com/512/147/147140.png"},
+            {id: 6, name: "Beka", userPhoto: "https://cdn-icons-png.flaticon.com/512/147/147140.png"},
+            {id: 7, name: "Doni", userPhoto: "https://cdn-icons-png.flaticon.com/512/147/147140.png"},
+            {id: 8, name: "Beka", userPhoto: "https://cdn-icons-png.flaticon.com/512/147/147140.png"},
+            {id: 9, name: "Beka", userPhoto: "https://cdn-icons-png.flaticon.com/512/147/147140.png"},
+            {id: 10, name: "Beka", userPhoto: "https://cdn-icons-png.flaticon.com/512/147/147140.png"},
+        ]
     }
 }
 
