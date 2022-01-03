@@ -13,7 +13,6 @@ import FriendsList from "./components/Sidebar/FriendsList";
 const App = (props) => {
 
     return (
-        <Router>
             <div className="app-wrapper">
                 <Header/>
                 <div className="app-body">
@@ -42,7 +41,6 @@ const App = (props) => {
                     </div>
                 </div>
             </div>
-        </Router>
 
     );
 }
