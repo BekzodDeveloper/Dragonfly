@@ -1,3 +1,5 @@
+import {rerenderEntireTree} from "../render";
+
 let state = {
 
     profilePage: {
@@ -22,7 +24,8 @@ let state = {
                 postText: "Lorem10",
                 profileImg: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
                 likesCount: 91,
-            }, {
+            },
+            {
                 id: 4,
                 theme: "What kind of coffee I like to drink?",
                 postText: "Lorem10",
@@ -67,6 +70,14 @@ let state = {
             {id: 5, messageText: "Zoyir"},
             {id: 6, messageText: "Assalomu Aleykum! Assalomu Aleykum!"},
             {id: 7, messageText: "Assalomu Aleykum! Assalomu Aleykum!"},
+            {id: 8, messageText: "Assalomu Aleykum! Assalomu Aleykum!"},
+            {id: 1, messageText: "Assalomu Aleykum!"},
+            {id: 2, messageText: "Vaaleykum Assalom!"},
+            {id: 3, messageText: "Assalomu Aleykum! Assalomu Aleykum!"},
+            {id: 4, messageText: "Assalomu Aleykum"},
+            {id: 5, messageText: "Zoyir"},
+            {id: 6, messageText: "Assalomu Aleykum! Assalomu Aleykum!"},
+            {id: 7, messageText: "Assalomu Aleykum! Assalomu Aleykum!"},
             {id: 8, messageText: "Assalomu Aleykum! Assalomu Aleykum!"}
         ]
     },
@@ -83,15 +94,27 @@ let state = {
     }
 }
 
-export let addPost = (postMassage) => {
+export let addPost = (postTheme, postMassage) => {
     let newPost = {
         id: 5,
-        theme: "New Theme",
+        theme: postTheme,
         postText: postMassage,
         profileImg: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
         likesCount: 0
     };
     state.profilePage.posts.push(newPost);
+
+    rerenderEntireTree(state)
+}
+
+export let sendMessage = (messageText) => {
+    let newMessage = {
+        id: 5,
+        messageText: messageText
+    };
+    state.dialogPage.messages.push(newMessage);
+
+    rerenderEntireTree(state)
 }
 
 export default state;

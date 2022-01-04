@@ -33,7 +33,7 @@ const App = (props) => {
                         <Route exact path='/profile'
                                element={<Profile state={props.state.profilePage} addPost={props.addPost}/>}/>
                         <Route path='/dialogs'
-                               element={<Dialogs state={props.state.dialogPage}/>}/>
+                               element={<Dialogs state={props.state.dialogPage} sendMessage={props.sendMessage}/>}/>
                         <Route exact path='/notification' element={<Page title="Notification"/>}/>
                         <Route exact path='/music' element={<Page title="Music"/>}/>
                         <Route exact path='/settings' element={<Page title="Settings"/>}/>

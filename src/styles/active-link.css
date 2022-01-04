@@ -1,3 +1,7 @@
 .item-link.active{
     background-color: #A88D29;
+    z-index: 10;
+}
+.item-link.active:hover{
+    background-color: #A88D29;
 }

@@ -11,9 +11,10 @@ const Dialogs = (props) => {
 
     let newMessageEl = React.createRef();
 
-    let createMessage=()=>{
+    let sendMessage = () => {
         let text = newMessageEl.current.value;
-        alert(text);
+        props.sendMessage(text);
+        newMessageEl.current.value = '';
     }
 
 
@@ -24,18 +25,23 @@ const Dialogs = (props) => {
                     {dialogsEl}
                 </div>
                 <div className={styles.messages}>
-                    {/*<Routes>*/}
-                    {/*<Route path='/page1' element={<Page title="1st page"></Page>}/>*/}
-                    {/*<Route path='/page2' element={<Page title="2nd page"></Page>}/>*/}
-                    {messagesEl}
-                    {/*</Routes>*/}
+                    <div className={styles.messagesInner}>{messagesEl}</div>
+                    <div className={styles.typeMessage}>
+                        <div className={styles.typeMessageInner}>
+                            <textarea className={styles.messageArea}
+                                      type="text"
+                                      ref={newMessageEl}
+                                      placeholder="Type a message...">
+
+                            </textarea>
+                            <button className={styles.sendBtn} onClick={sendMessage} type="submit">Send</button>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div className={styles.typeMessage}>
-                <div><input type="text" ref={newMessageEl}/></div>
-                <div>
-                    <button onClick={createMessage}  type="submit">Submit</button></div>
-            </div>
+            <div></div>
         </div>
 
     )

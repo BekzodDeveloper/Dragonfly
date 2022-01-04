@@ -1,5 +1,5 @@
 .dialogs {
-    border-radius: 5px;
+
 }
 
 .dialogsInner {
@@ -8,11 +8,11 @@
 }
 
 .dialogsList {
-    background-color: #00021B;
-    border-radius: 5px;
-    box-shadow: 10px 0px 15px rgba(0, 2, 27, 0.5);
+    background-color: #e5e5e5;
+    /*box-shadow: 10px 0px 15px rgba(0, 2, 27, 0.5);*/
     z-index: 5;
     max-width: 280px;
+
 
 }
 
@@ -26,7 +26,7 @@
 }
 
 .dialog a {
-    color: #fff;
+    color: #818181;
     font-weight: 700;
     text-decoration: none;
     font-size: 18px;
@@ -34,8 +34,6 @@
     display: inline-flex;
     align-items: flex-start;
     width: 100%;
-    border-radius: 5px;
-    border: 1px solid #00021B;
 }
 
 .dialog p {
@@ -45,17 +43,62 @@
 
 .dialog a:hover {
     color: #00021B;
-    background-color: #fff;
+    /*background-color: #fff;*/
 }
 
 
 .messages {
+    position: relative;
+}
+.messagesInner{
     padding: 20px;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
-    background-color: #AC6AFF;
+    background-color: #818181;
+    overflow-y: auto;
+}
+
+
+.typeMessage{
+    position: sticky;
+    bottom: 0;
+    left: 0;
 
 }
+.typeMessageInner{
+    position: relative;
+}
+.messageArea{
+
+    padding: 20px;
+    background-color: #fff;
+    border: none;
+    font-size: 18px;
+    line-height: 21px;
+    color: #828282;
+    resize: none;
+    width: 100%;
+    outline: none;
+    overflow-y: hidden;
+    
+}
+.messageArea:focus{
+    background-color: #e5e5e5;
+    color: black;
+}
+.sendBtn{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-color: #f0ca3b;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
 
 .message {
     /*padding: 15px;*/

@@ -6,14 +6,16 @@ const MyPosts = (props) => {
     let postsEl = props.posts.map(p => <Post theme={p.theme} postText={p.postText}
                                              profileImg={p.profileImg} likesCount={p.likesCount}/>);
 
-    let newPostEl = React.createRef();
+    let newPostThemeEl = React.createRef();
+    let newPostMessageEl = React.createRef();
 
 
     let addPost = () => {
-        debugger;
-
-        let textareaValue = newPostEl.current.value; //.current is <textarea>
-        props.addPost(textareaValue);
+        let themeValue = newPostThemeEl.current.value; //.current is <textarea>
+        let messageValue = newPostMessageEl.current.value; //.current is <textarea>
+        props.addPost(themeValue,messageValue);
+        newPostThemeEl.current.value = '';
+        newPostMessageEl.current.value = '';
     }
 
 
@@ -21,7 +23,8 @@ const MyPosts = (props) => {
         <div className={styles.myPosts}>
             <h3>My post</h3>
             <div className={styles.addPost}>
-                <div><textarea name="" ref={newPostEl} cols="60" rows="2"></textarea></div>
+                <div className={styles.addPostTheme}><textarea name="" ref={newPostThemeEl} cols="40" rows="3" placeholder="Theme..."></textarea></div>
+                <div><textarea name="" ref={newPostMessageEl} cols="40" rows="6" placeholder="Text..."></textarea></div>
                 <div>
                     <button onClick={addPost}>Add post</button>
                 </div>
