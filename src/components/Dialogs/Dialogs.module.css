@@ -1,9 +1,10 @@
 .dialogs {
+    border-radius: 5px;
+}
+
+.dialogsInner {
     display: grid;
     grid-template-columns: 3fr 9fr;
-    /*border: 1px solid #00021B;*/
-    border-radius: 5px;
-
 }
 
 .dialogsList {
@@ -20,15 +21,16 @@
     width: 50px;
 }
 
-.dialog{
+.dialog {
     max-width: 280px;
 }
-.dialog a{
+
+.dialog a {
     color: #fff;
     font-weight: 700;
     text-decoration: none;
     font-size: 18px;
-    padding:12px 20px;
+    padding: 12px 20px;
     display: inline-flex;
     align-items: flex-start;
     width: 100%;
@@ -36,7 +38,7 @@
     border: 1px solid #00021B;
 }
 
-.dialog p{
+.dialog p {
     margin: 0 0 0 15px;
 
 }
@@ -59,10 +61,12 @@
     /*padding: 15px;*/
     margin-bottom: 10px;
 }
-.message:nth-child(1).p{
+
+.message:nth-child(1).p {
     text-align: right;
 }
-.messageText{
+
+.messageText {
     display: inline-block;
     border-radius: 20px;
     background-color: #fff;

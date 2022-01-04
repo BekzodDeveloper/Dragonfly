@@ -7,27 +7,27 @@ let state = {
                 theme: "How become a Project Manager? 5 steps for it.",
                 postText: "Project managers organize teams of people to accomplish a specific goal, or project, for companies and other organizations. If you’re organized, intrigued by people, and ready to take on a larger role in your career, project management might be a good fit.",
                 profileImg: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
-                likesCount: "199",
+                likesCount: 199,
             },
             {
                 id: 2,
                 theme: "My way to Front-End Development.",
                 postText: "Lorem10",
                 profileImg: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
-                likesCount: "80",
+                likesCount: 80,
             },
             {
                 id: 3,
                 theme: "What kind of coffee I like to drink?",
                 postText: "Lorem10",
                 profileImg: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
-                likesCount: "91",
+                likesCount: 91,
             }, {
                 id: 4,
                 theme: "What kind of coffee I like to drink?",
                 postText: "Lorem10",
                 profileImg: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
-                likesCount: "90",
+                likesCount: 900,
             },
         ],
         profileInfoData:
@@ -81,6 +81,17 @@ let state = {
             {id: 6, name: "Mamarayim", userPhoto: "https://cdn-icons-png.flaticon.com/512/147/147140.png"}
         ]
     }
+}
+
+export let addPost = (postMassage) => {
+    let newPost = {
+        id: 5,
+        theme: "New Theme",
+        postText: postMassage,
+        profileImg: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
+        likesCount: 0
+    };
+    state.profilePage.posts.push(newPost);
 }
 
 export default state;

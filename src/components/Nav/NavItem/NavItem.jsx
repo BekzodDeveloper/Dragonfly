@@ -17,7 +17,7 @@ const NavItem = (props) => {
             </li>
             {/*<li className={styles.item}><NavLink className="item-link" exact to="/profile">Profile</NavLink>*/}
             {/*</li>*/}
-            {/*<li className={styles.item}><NavLink className="item-link" exact to="/dialogs">Messages</NavLink>*/}
+            {/*<li className={styles.item}><NavLink className="item-link" exact to="/dialogs">FMessages</NavLink>*/}
             {/*</li>*/}
             {/*<li className={styles.item}><NavLink className="item-link" exact to="/news">News</NavLink>*/}
             {/*</li>*/}

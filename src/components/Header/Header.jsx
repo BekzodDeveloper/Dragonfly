@@ -9,6 +9,13 @@ import accountImg from "./img/accountPhoto.png"
 
 
 const Header = (props) => {
+
+    let searchTextRef = React.createRef();
+    let searchBtn=()=>{
+        let searchText = searchTextRef.current.value;
+        alert(searchText);
+    }
+
     return (
         <header className={styles.header}>
             <div className={styles.headerInner}>
@@ -21,8 +28,8 @@ const Header = (props) => {
                         </div>
                     </NavLink>
                     <div className={styles.searchInput} >
-                        <img className={styles.searchImg} src={searchImg} alt=""/>
-                        <input type="text" placeholder="Search..."/>
+                        <button className={styles.searchBtn} type="submit" onClick={searchBtn}><img className={styles.searchImg} src={searchImg} alt=""/></button>
+                        <input ref={searchTextRef} type="text" placeholder="Search..."/>
                     </div>
 
                 </div>
