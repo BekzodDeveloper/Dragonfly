@@ -12,6 +12,11 @@
 }
 .addPost{
     margin-bottom: 20px;
+
+}
+.addPostInner{
+    /*display: flex;*/
+    /*justify-content: space-between;*/
 }
 .addPost textarea{
     padding: 10px;
@@ -22,11 +27,12 @@
     line-height: 21px;
     color: #828282;
     resize: none;
+    width: 100%;
+
 }
 .addPost textarea:focus{
     outline:1px solid #A88D29;
 }
 .addPostTheme textarea{
     color: black;
-    font-weight: 700;
 }

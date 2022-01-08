@@ -25,22 +25,20 @@ let state = {
                 profileImg: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
                 likesCount: 91,
             },
-            {
-                id: 4,
-                theme: "What kind of coffee I like to drink?",
-                postText: "Lorem10",
-                profileImg: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
-                likesCount: 900,
-            },
         ],
-        profileInfoData:
-            {
-                name: "Bekzod",
-                sureName: "Kholdarov",
-                about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, minus!",
-                profilePhoto: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
-                profileBg: "https://images.unsplash.com/photo-1636956040469-fec02ed01ab5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGJnJTIwc29jaWFsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-            },
+        profileInfoData: {
+            name: "Bekzod",
+            sureName: "Kholdarov",
+            about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, minus!",
+            profilePhoto: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
+            profileBg: "https://images.unsplash.com/photo-1636956040469-fec02ed01ab5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGJnJTIwc29jaWFsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
+        },
+        addPostData: {
+            newThemeText: '',
+            newMessageText: ''
+        },
+
+
     },
 
     dialogPage: {
@@ -78,8 +76,10 @@ let state = {
             {id: 5, messageText: "Zoyir"},
             {id: 6, messageText: "Assalomu Aleykum! Assalomu Aleykum!"},
             {id: 7, messageText: "Assalomu Aleykum! Assalomu Aleykum!"},
-            {id: 8, messageText: "Assalomu Aleykum! Assalomu Aleykum!"}
-        ]
+            {id: 8, messageText: "Assalomu Aleykum! Assalomu Aleykum!"},
+
+        ],
+        sendMessageData: '',
     },
 
     sidebarPage: {
@@ -94,27 +94,67 @@ let state = {
     }
 }
 
-export let addPost = (postTheme, postMassage) => {
+window.state = state;
+
+//adding post to MyPosts
+export let addPost = () => {
     let newPost = {
         id: 5,
-        theme: postTheme,
-        postText: postMassage,
+        theme: state.profilePage.addPostData.newThemeText,
+        postText: state.profilePage.addPostData.newMessageText,
         profileImg: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
         likesCount: 0
     };
     state.profilePage.posts.push(newPost);
 
+    //delete text after AddPost
+    state.profilePage.addPostData.newThemeText = '';
+    state.profilePage.addPostData.newMessageText = '';
+
+    rerenderEntireTree(state)
+}
+//listening value of textarea
+export let updateNewPostText = (newThemeText, newMessageText) => {
+    state.profilePage.addPostData.newThemeText = newThemeText;
+    state.profilePage.addPostData.newMessageText = newMessageText;
     rerenderEntireTree(state)
 }
 
-export let sendMessage = (messageText) => {
-    let newMessage = {
+//sending message
+export let sendMessage = () => {
+    let newMessageData = {
         id: 5,
-        messageText: messageText
+        messageText: state.dialogPage.sendMessageData,
     };
-    state.dialogPage.messages.push(newMessage);
+    state.dialogPage.messages.push(newMessageData);
 
-    rerenderEntireTree(state)
+    //delete message after sendMessage !!!not working
+    state.dialogPage.sendMessageData = '';
+    rerenderEntireTree(state);
 }
+//updating value of textarea
+export let updateNewMessage = (newMessage) => {
+    state.dialogPage.sendMessageData = newMessage;
+    rerenderEntireTree(state);
+}
+
+
+//sending messages in MessagesPage
+// export let sendMessage = () => {
+//     let newMessage = {
+//         id: 5,
+//         messageText: state.dialogPage.sendMessageData,
+//     };
+//     state.dialogPage.messages.push(newMessage);
+//
+//     state.dialogPage.sendMessageData = '';
+//
+//     rerenderEntireTree(state);
+// }
+//
+// export let updateNewMessageText = (newTypedMessageText) => {
+//     state.dialogPage.sendMessageData = newTypedMessageText;
+//     rerenderEntireTree(state);
+// }
 
 export default state;

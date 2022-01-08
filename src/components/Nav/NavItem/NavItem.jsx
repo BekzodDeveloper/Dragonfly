@@ -8,7 +8,7 @@ const NavItem = (props) => {
     return (
 
             <li className={styles.item}>
-                <NavLink className={styles.itemLink + ' item-link'} exact to={props.path}>
+                <NavLink className={styles.itemLink + ' item-link'} to={props.path}>
                     <img src={props.icon} alt=""/>
                     <div className={styles.itemText}>{props.navText}</div>
                 </NavLink>
