@@ -19,7 +19,6 @@ const App = (props) => {
             <div className="app-body">
                 <div className="sidebar">
                     <Nav/>
-                    {/*<FriendsList state={props.state.sidebarPage}/>*/}
                 </div>
 
                 <div className="app-content">
@@ -31,13 +30,13 @@ const App = (props) => {
                         </Route>
 
                         <Route exact path='/profile'
-                               element={<Profile profilePage={props.state.profilePage}
-                                                 addPost={props.addPost}
-                                                 updateNewPostText={props.updateNewPostText}/>}/>
+                               element={<Profile profilePage={props.store.getState().profilePage}
+                                                 addPost={props.store.addPost}
+                                                 updateNewPostText={props.store.updateNewPostText}/>}/>
                         <Route path='/dialogs'
-                               element={<Dialogs dialogPage={props.state.dialogPage}
-                                                 sendMessage={props.sendMessage}
-                                                 updateNewMessage={props.updateNewMessage}
+                               element={<Dialogs dialogPage={props.store.getState().dialogPage}
+                                                 sendMessage={props.store.sendMessage}
+                                                 updateNewMessage={props.store.updateNewMessage}
                                />}/>
                         <Route exact path='/notification' element={<Page title="Notification"/>}/>
                         <Route exact path='/music' element={<Page title="Music"/>}/>
@@ -46,7 +45,7 @@ const App = (props) => {
                     </Routes>
                 </div>
                 <aside className="aside">
-                    <FriendsList state={props.state.sidebarPage}/>
+                    <FriendsList sidebarPage={props.store.getState().sidebarPage}/>
                 </aside>
             </div>
         </div>

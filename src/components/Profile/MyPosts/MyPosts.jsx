@@ -36,7 +36,7 @@ const MyPosts = (props) => {
                               cols="30" rows="3" placeholder="Theme..."/></div>
                     <div className={styles.addPostMessage}>
                     <textarea onChange={onTextChange}
-                              value={props.addPostData.addPostData}
+                              value={props.addPostData.newMessageText}
                               ref={newPostMessageEl}
                               cols="30" rows="3" placeholder="Text..."/>
                     </div>

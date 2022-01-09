@@ -23,20 +23,6 @@ const Dialogs = (props) => {
         props.updateNewMessage(newMessage);
     }
 
-    // let sendMessage = () => {
-    //     let newTypedMessage = newMessageEl.current.value;
-    //     console.log(newTypedMessage)
-    //     props.sendMessage();
-    //     newTypedMessage='';
-    //     // props.updateNewMessageText('');
-    //     console.log(newTypedMessage)
-    //
-    // }
-    //
-    // let onTypingMessage = () => {
-    //     let newTypedMessage = newMessageEl.current.value;
-    //     props.updateNewMessageText(newTypedMessage);
-    // }
 
     return (
         <div className={styles.dialogs}>
