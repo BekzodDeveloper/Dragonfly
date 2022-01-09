@@ -1,5 +1,5 @@
 let store = {
-    rerenderEntireTree() {
+    _callSubscriber() {
         console.log('State is changed!')
     },
     _state: {
@@ -99,55 +99,51 @@ let store = {
     getState() {
         return this._state;
     },
-
-
 //adding post to MyPosts
     addPost() {
+        debugger;
         let newPost = {
             id: 5,
-            theme: store.getState().profilePage.addPostData.newThemeText,
-            postText: store.getState().profilePage.addPostData.newMessageText,
+            theme: this._state.profilePage.addPostData.newThemeText,
+            postText: this._state.profilePage.addPostData.newMessageText,
             profileImg: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
             likesCount: 0
         };
-        store.getState().profilePage.posts.push(newPost);
+        this._state.profilePage.posts.push(newPost);
 
         //delete text after AddPost
-        store.getState().profilePage.addPostData.newThemeText = '';
-        store.getState().profilePage.addPostData.newMessageText = '';
+        this._state.profilePage.addPostData.newThemeText = '';
+        this._state.profilePage.addPostData.newMessageText = '';
 
-        store.rerenderEntireTree(store.getState())
+        this._callSubscriber(this._state)
     },
 //listening value of textarea
     updateNewPostText(newThemeText, newMessageText) {
-        console.log(store.getState().profilePage);
-        store.getState().profilePage.addPostData.newThemeText = newThemeText;
-        store.getState().profilePage.addPostData.newMessageText = newMessageText;
-        store.rerenderEntireTree(this.getState)
+        console.log(this._state.profilePage);
+        this._state.profilePage.addPostData.newThemeText = newThemeText;
+        this._state.profilePage.addPostData.newMessageText = newMessageText;
+        this._callSubscriber(this._state)
     },
-
 //sending message
     sendMessage() {
         let newMessageData = {
             id: 5,
-            messageText: store.getState().dialogPage.sendMessageData,
+            messageText: this._state.dialogPage.sendMessageData,
         };
-        store.getState().dialogPage.messages.push(newMessageData);
+        this._state.dialogPage.messages.push(newMessageData);
 
         //delete message after sendMessage
-        store.getState().dialogPage.sendMessageData = '';
-        store.rerenderEntireTree(store.getState);
+        this._state.dialogPage.sendMessageData = '';
+        this._callSubscriber(this._state);
     },
 //updating value of textarea
-
     updateNewMessage(newMessage) {
-        store.getState().dialogPage.sendMessageData = newMessage; //dialogPage is not defined
-        store.rerenderEntireTree(store.getState);
+        this._state.dialogPage.sendMessageData = newMessage; //dialogPage is not defined
+        this._callSubscriber(this._state);
     },
-
-//rerenderEntireTree from index.js is equal to rerenderEntireTree of this state.js function
+//_callSubscriber from index.js is equal to _callSubscriber of this state.js function
     subscribe(observer) {
-        store.rerenderEntireTree = observer;
+        this._callSubscriber = observer;
     },
 }
 

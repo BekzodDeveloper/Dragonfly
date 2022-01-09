@@ -30,13 +30,13 @@ const App = (props) => {
                         </Route>
 
                         <Route exact path='/profile'
-                               element={<Profile profilePage={props.store.getState().profilePage}
-                                                 addPost={props.store.addPost}
-                                                 updateNewPostText={props.store.updateNewPostText}/>}/>
+                               element={<Profile profilePage={props.store._state.profilePage}
+                                                 addPost={props.store.addPost.bind(props.store)}
+                                                 updateNewPostText={props.store.updateNewPostText.bind(props.store).bind(props.store)}/>}/>
                         <Route path='/dialogs'
-                               element={<Dialogs dialogPage={props.store.getState().dialogPage}
-                                                 sendMessage={props.store.sendMessage}
-                                                 updateNewMessage={props.store.updateNewMessage}
+                               element={<Dialogs dialogPage={props.store._state.dialogPage}
+                                                 sendMessage={props.store.sendMessage.bind(props.store)}
+                                                 updateNewMessage={props.store.updateNewMessage.bind(props.store)}
                                />}/>
                         <Route exact path='/notification' element={<Page title="Notification"/>}/>
                         <Route exact path='/music' element={<Page title="Music"/>}/>
@@ -45,7 +45,7 @@ const App = (props) => {
                     </Routes>
                 </div>
                 <aside className="aside">
-                    <FriendsList sidebarPage={props.store.getState().sidebarPage}/>
+                    <FriendsList sidebarPage={props.store._state.sidebarPage}/>
                 </aside>
             </div>
         </div>
