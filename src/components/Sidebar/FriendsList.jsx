@@ -34,8 +34,6 @@ const FriendItem = (props) => {
         {userPhoto: user4Photo},
         {userPhoto: user5Photo}
     ];
-    // let userPhotosEl = userPhotos.map(u => <img className={styles.userPhoto}
-    //                                             src={u.userPhoto} alt=""/>);
 
     let path = "/friend/" + props.id;
     return (

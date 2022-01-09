@@ -23,20 +23,17 @@ const App = (props) => {
 
                 <div className="app-content">
                     <Routes>
-                        <Route path='/' element={<Home/>}>
-                            {/*<Route index element={<p>Home</p>}/>*/}
-                            {/*<Route path='/home/create-post' element={<p>Create post</p>}/>*/}
-                            {/*<Route path='/home/friends' element={<p>Friends</p>}/>*/}
-                        </Route>
+                        <Route path='/' element={<Home/>}/>
 
                         <Route exact path='/profile'
-                               element={<Profile profilePage={props.store._state.profilePage}
-                                                 addPost={props.store.addPost.bind(props.store)}
-                                                 updateNewPostText={props.store.updateNewPostText.bind(props.store).bind(props.store)}/>}/>
+                               element={<Profile
+                                   profilePage={props.state.profilePage}
+                                   dispatch={props.dispatch}
+                               />}
+                        />
                         <Route path='/dialogs'
-                               element={<Dialogs dialogPage={props.store._state.dialogPage}
-                                                 sendMessage={props.store.sendMessage.bind(props.store)}
-                                                 updateNewMessage={props.store.updateNewMessage.bind(props.store)}
+                               element={<Dialogs dialogPage={props.state.dialogPage}
+                                                 dispatch={props.dispatch}
                                />}/>
                         <Route exact path='/notification' element={<Page title="Notification"/>}/>
                         <Route exact path='/music' element={<Page title="Music"/>}/>
@@ -45,7 +42,7 @@ const App = (props) => {
                     </Routes>
                 </div>
                 <aside className="aside">
-                    <FriendsList sidebarPage={props.store._state.sidebarPage}/>
+                    <FriendsList sidebarPage={props.state.sidebarPage}/>
                 </aside>
             </div>
         </div>

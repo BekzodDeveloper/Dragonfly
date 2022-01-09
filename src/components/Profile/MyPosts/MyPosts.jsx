@@ -13,14 +13,16 @@ const MyPosts = (props) => {
 
 
     let addPost = () => {
-        props.addPost();
-        props.updateNewPostText('', '');
+        props.dispatch({type: 'ADD-POST'});
+        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newTheme: '', newMessage: ''});
     }
 //
-    let onTextChange = () => {
-        let themeValue = newPostThemeEl.current.value; //.current is <textarea>
-        let messageValue = newPostMessageEl.current.value; //.current is <textarea>
-        props.updateNewPostText(themeValue, messageValue);
+    let onPostChange = () => {
+        let themeValue = newPostThemeEl.current.value;
+        let messageValue = newPostMessageEl.current.value;
+
+        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newTheme: themeValue, newMessage: messageValue});
+
     }
 
 
@@ -30,12 +32,12 @@ const MyPosts = (props) => {
             <div className={styles.addPost}>
                 <div className={styles.addPostInner}>
                     <div className={styles.addPostTheme}>
-                    <textarea onChange={onTextChange}
+                    <textarea onChange={onPostChange}
                               value={props.addPostData.newThemeText}
                               ref={newPostThemeEl}
                               cols="30" rows="3" placeholder="Theme..."/></div>
                     <div className={styles.addPostMessage}>
-                    <textarea onChange={onTextChange}
+                    <textarea onChange={onPostChange}
                               value={props.addPostData.newMessageText}
                               ref={newPostMessageEl}
                               cols="30" rows="3" placeholder="Text..."/>

@@ -1,7 +1,4 @@
 let store = {
-    _callSubscriber() {
-        console.log('State is changed!')
-    },
     _state: {
         profilePage: {
             posts: [
@@ -96,55 +93,54 @@ let store = {
             ]
         }
     },
+    _callSubscriber() {
+        console.log('State is changed!')
+    },
     getState() {
         return this._state;
     },
-//adding post to MyPosts
-    addPost() {
-        debugger;
-        let newPost = {
-            id: 5,
-            theme: this._state.profilePage.addPostData.newThemeText,
-            postText: this._state.profilePage.addPostData.newMessageText,
-            profileImg: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
-            likesCount: 0
-        };
-        this._state.profilePage.posts.push(newPost);
-
-        //delete text after AddPost
-        this._state.profilePage.addPostData.newThemeText = '';
-        this._state.profilePage.addPostData.newMessageText = '';
-
-        this._callSubscriber(this._state)
-    },
-//listening value of textarea
-    updateNewPostText(newThemeText, newMessageText) {
-        console.log(this._state.profilePage);
-        this._state.profilePage.addPostData.newThemeText = newThemeText;
-        this._state.profilePage.addPostData.newMessageText = newMessageText;
-        this._callSubscriber(this._state)
-    },
-//sending message
-    sendMessage() {
-        let newMessageData = {
-            id: 5,
-            messageText: this._state.dialogPage.sendMessageData,
-        };
-        this._state.dialogPage.messages.push(newMessageData);
-
-        //delete message after sendMessage
-        this._state.dialogPage.sendMessageData = '';
-        this._callSubscriber(this._state);
-    },
-//updating value of textarea
-    updateNewMessage(newMessage) {
-        this._state.dialogPage.sendMessageData = newMessage; //dialogPage is not defined
-        this._callSubscriber(this._state);
-    },
-//_callSubscriber from index.js is equal to _callSubscriber of this state.js function
     subscribe(observer) {
         this._callSubscriber = observer;
     },
+
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 5,
+                theme: this._state.profilePage.addPostData.newThemeText,
+                postText: this._state.profilePage.addPostData.newMessageText,
+                profileImg: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
+                likesCount: 0
+            };
+            this._state.profilePage.posts.push(newPost);
+
+            this._state.profilePage.addPostData.newThemeText = '';
+            this._state.profilePage.addPostData.newMessageText = '';
+
+            this._callSubscriber(this._state);
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            console.log("Updated")
+            this._state.profilePage.addPostData.newThemeText = action.newTheme;
+            this._state.profilePage.addPostData.newMessageText = action.newMessage;
+            this._callSubscriber(this._state);
+        } else if (action.type === 'SEND-MESSAGE') {
+            let newMessageData = {
+                id: 5,
+                messageText: this._state.dialogPage.sendMessageData,
+            };
+            this._state.dialogPage.messages.push(newMessageData);
+
+            this._state.dialogPage.sendMessageData = '';
+            this._callSubscriber(this._state);
+        } else if (action.type === 'UPDATE-NEW-MESSAGE') {
+            debugger;
+            this._state.dialogPage.sendMessageData = action.newMessage;
+            this._callSubscriber(this._state);
+        } else {
+            console.log('Not found')
+        }
+    }
+
 }
 
 

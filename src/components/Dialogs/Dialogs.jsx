@@ -12,15 +12,11 @@ const Dialogs = (props) => {
     let newMessageEl = React.createRef();
 
     let sendMessage = () => {
-
-        props.sendMessage();
-        // props.updateNewMessage('');
+        props.dispatch({type: 'SEND-MESSAGE'});
     }
-//
     let onMessageChange = () => {
-
-        let newMessage = newMessageEl.current.value; //.current is <textarea>
-        props.updateNewMessage(newMessage);
+        let newMessage = newMessageEl.current.value;
+        props.dispatch({type: 'UPDATE-NEW-MESSAGE', newMessage: newMessage});
     }
 
 
@@ -51,12 +47,4 @@ const Dialogs = (props) => {
 
     )
 }
-//
-// const Page = ({title}) => {
-//     return (
-//         <h1>{title}</h1>
-//     )
-// }
-
-
 export default Dialogs;
