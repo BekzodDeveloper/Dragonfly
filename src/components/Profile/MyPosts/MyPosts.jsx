@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './MyPosts.module.css';
 import Post from "./Post/Post";
+import {addPostAC, updateNewMessageAC, updateNewPostTextAC} from "../../../redux/state";
 
 const MyPosts = (props) => {
     let postsEl = props.posts.map(p => <Post theme={p.theme}
@@ -13,15 +14,15 @@ const MyPosts = (props) => {
 
 
     let addPost = () => {
-        props.dispatch({type: 'ADD-POST'});
-        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newTheme: '', newMessage: ''});
+        props.dispatch(addPostAC());
+        props.dispatch(updateNewPostTextAC('', ''));
     }
 //
     let onPostChange = () => {
         let themeValue = newPostThemeEl.current.value;
         let messageValue = newPostMessageEl.current.value;
 
-        props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newTheme: themeValue, newMessage: messageValue});
+        props.dispatch(updateNewPostTextAC(themeValue, messageValue));
 
     }
 

@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const SEND_MESSAGE = 'SEND-MESSAGE';
+const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
+
 let store = {
     _state: {
         profilePage: {
@@ -103,8 +108,9 @@ let store = {
         this._callSubscriber = observer;
     },
 
+
     dispatch(action) {
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 5,
                 theme: this._state.profilePage.addPostData.newThemeText,
@@ -118,12 +124,12 @@ let store = {
             this._state.profilePage.addPostData.newMessageText = '';
 
             this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
             console.log("Updated")
             this._state.profilePage.addPostData.newThemeText = action.newTheme;
             this._state.profilePage.addPostData.newMessageText = action.newMessage;
             this._callSubscriber(this._state);
-        } else if (action.type === 'SEND-MESSAGE') {
+        } else if (action.type === SEND_MESSAGE) {
             let newMessageData = {
                 id: 5,
                 messageText: this._state.dialogPage.sendMessageData,
@@ -132,7 +138,7 @@ let store = {
 
             this._state.dialogPage.sendMessageData = '';
             this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-MESSAGE') {
+        } else if (action.type === UPDATE_NEW_MESSAGE) {
             debugger;
             this._state.dialogPage.sendMessageData = action.newMessage;
             this._callSubscriber(this._state);
@@ -141,7 +147,16 @@ let store = {
         }
     }
 
+
 }
+export const addPostAC = () => ({type: ADD_POST});
+export const updateNewPostTextAC = (newTheme, newMessage) => ({
+    type: UPDATE_NEW_POST_TEXT,
+    newTheme: newTheme,
+    newMessage: newMessage
+});
+export const sendMessageAC = () => ({type: SEND_MESSAGE});
+export const updateNewMessageAC = (text) => ({type: UPDATE_NEW_MESSAGE, newMessage: text});
 
 
 export default store;
