@@ -42,7 +42,7 @@ const App = (props) => {
                     </Routes>
                 </div>
                 <aside className="aside">
-                    <FriendsList sidebarPage={props.state.sidebarPage}/>
+                    <FriendsList sidebar={props.state.sidebar}/>
                 </aside>
             </div>
         </div>

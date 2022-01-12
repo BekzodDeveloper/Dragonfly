@@ -1,7 +1,7 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const SEND_MESSAGE = 'SEND-MESSAGE';
-const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
+import profileReducer from "./profileReducer";
+import dialogsReducer from "./dialogsReducer";
+import sidebarReducer from "./sidebarReducer";
+
 
 let store = {
     _state: {
@@ -83,7 +83,7 @@ let store = {
             sendMessageData: '',
         },
 
-        sidebarPage: {
+        sidebar: {
             friendsList: [
                 {
                     id: 1,
@@ -110,53 +110,12 @@ let store = {
 
 
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 5,
-                theme: this._state.profilePage.addPostData.newThemeText,
-                postText: this._state.profilePage.addPostData.newMessageText,
-                profileImg: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
-                likesCount: 0
-            };
-            this._state.profilePage.posts.push(newPost);
-
-            this._state.profilePage.addPostData.newThemeText = '';
-            this._state.profilePage.addPostData.newMessageText = '';
-
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            console.log("Updated")
-            this._state.profilePage.addPostData.newThemeText = action.newTheme;
-            this._state.profilePage.addPostData.newMessageText = action.newMessage;
-            this._callSubscriber(this._state);
-        } else if (action.type === SEND_MESSAGE) {
-            let newMessageData = {
-                id: 5,
-                messageText: this._state.dialogPage.sendMessageData,
-            };
-            this._state.dialogPage.messages.push(newMessageData);
-
-            this._state.dialogPage.sendMessageData = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_MESSAGE) {
-            debugger;
-            this._state.dialogPage.sendMessageData = action.newMessage;
-            this._callSubscriber(this._state);
-        } else {
-            console.log('Not found')
-        }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogPage = dialogsReducer(this._state.dialogPage, action);
+        this._state.sidebar = sidebarReducer(this._state.sidebar, action);
+        this._callSubscriber(this._state);
     }
-
-
 }
-export const addPostAC = () => ({type: ADD_POST});
-export const updateNewPostTextAC = (newTheme, newMessage) => ({
-    type: UPDATE_NEW_POST_TEXT,
-    newTheme: newTheme,
-    newMessage: newMessage
-});
-export const sendMessageAC = () => ({type: SEND_MESSAGE});
-export const updateNewMessageAC = (text) => ({type: UPDATE_NEW_MESSAGE, newMessage: text});
 
 
 export default store;

@@ -9,7 +9,7 @@ import user5Photo from "./img/user5.png";
 
 
 const FriendsList = (props) => {
-    let friendsListEl = props.sidebarPage.friendsList.map(f => <FriendItem name={f.name} userPhoto={f.userPhoto} id={f.id}/>);
+    let friendsListEl = props.sidebar.friendsList.map(f => <FriendItem name={f.name} userPhoto={f.userPhoto} id={f.id}/>);
 
 
     return (
