@@ -14,16 +14,13 @@ const MyPosts = (props) => {
 
 
     let addPost = () => {
-        props.dispatch(addPostAC());
-        props.dispatch(updateNewPostTextAC('', ''));
+        props.addPost();
     }
-//
+
     let onPostChange = () => {
         let themeValue = newPostThemeEl.current.value;
         let messageValue = newPostMessageEl.current.value;
-
-        props.dispatch(updateNewPostTextAC(themeValue, messageValue));
-
+        props.updateNewPostText(themeValue, messageValue);
     }
 
 

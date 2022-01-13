@@ -2,21 +2,21 @@ import React from 'react';
 import styles from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import {sendMessageAC, updateNewMessageAC} from "../../redux/dialogsReducer";
 
 
 const Dialogs = (props) => {
+
     let dialogsEl = props.dialogPage.dialogs.map(d => <DialogItem id={d.id} name={d.name} userPhoto={d.userPhoto}/>);
     let messagesEl = props.dialogPage.messages.map(m => <Message id={m.id} messageText={m.messageText}/>);
 
     let newMessageEl = React.createRef();
 
-    let sendMessage = () => {
-        props.dispatch(sendMessageAC());
+    let onSendMessage = () => {
+        props.sendMessage();
     }
-    let onMessageChange = () => {
-        let newMessage = newMessageEl.current.value;
-        props.dispatch(updateNewMessageAC(newMessage));
+    let onMessageChange = (e) => {
+        let newMessage = e.target.value;
+        props.updateNewMessage(newMessage);
     }
 
 
@@ -35,7 +35,7 @@ const Dialogs = (props) => {
                                       ref={newMessageEl}
                                       placeholder="Type a message..."
                                       value={props.dialogPage.sendMessageData}/>
-                            <button className={styles.sendBtn} onClick={sendMessage} type="submit">Send</button>
+                            <button className={styles.sendBtn} onClick={onSendMessage} type="submit">Send</button>
                         </div>
                         <div>
                         </div>

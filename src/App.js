@@ -5,9 +5,9 @@ import {Routes, Route} from 'react-router-dom' ;
 import Header from "./components/Header/Header";
 import Nav from "./components/Nav/Nav";
 import Profile from "./components/Profile/Profile";
-import Dialogs from "./components/Dialogs/Dialogs";
 import Home from "./components/Home/Home";
 import FriendsList from "./components/Sidebar/FriendsList";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 
 const App = (props) => {
@@ -26,14 +26,13 @@ const App = (props) => {
                         <Route path='/' element={<Home/>}/>
 
                         <Route exact path='/profile'
-                               element={<Profile
-                                   profilePage={props.state.profilePage}
-                                   dispatch={props.dispatch}
-                               />}
+                               element={<Profile store={props.store}/>}
                         />
                         <Route path='/dialogs'
-                               element={<Dialogs dialogPage={props.state.dialogPage}
-                                                 dispatch={props.dispatch}
+                               element={<DialogsContainer
+                                   store={props.store}
+                                   //dialogPage={props.state.dialogPage}
+                                   //dispatch={props.dispatch}
                                />}/>
                         <Route exact path='/notification' element={<Page title="Notification"/>}/>
                         <Route exact path='/music' element={<Page title="Music"/>}/>
