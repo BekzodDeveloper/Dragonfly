@@ -6,7 +6,6 @@ import {sendMessageAC, updateNewMessageAC} from "../../redux/dialogsReducer";
 
 
 const Dialogs = (props) => {
-
     let dialogsEl = props.dialogPage.dialogs.map(d => <DialogItem id={d.id} name={d.name} userPhoto={d.userPhoto}/>);
     let messagesEl = props.dialogPage.messages.map(m => <Message id={m.id} messageText={m.messageText}/>);
 
