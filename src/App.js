@@ -10,7 +10,7 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import FriendsListContainer from "./components/Sidebar/FriendsListContainer";
 
 
-const App = (props) => {
+const App = () => {
 
     return (
         <div className="app-wrapper">

@@ -1,3 +1,5 @@
+import {act} from "@testing-library/react";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
@@ -53,20 +55,23 @@ const profileReducer = (state = initialState, action) => {
 
             state.addPostData.newThemeText = '';
             state.addPostData.newMessageText = '';
+            console.log()
             return state;
         case UPDATE_NEW_POST_TEXT:
             state.addPostData.newThemeText = action.newTheme;
             state.addPostData.newMessageText = action.newMessage;
+            // console.log(state.addPostData.newThemeText)
             return state;
         default:
             return state;
     }
 }
-export const addPostAC = () => ({type: ADD_POST});
-export const updateNewPostTextAC = (newTheme, newMessage) => ({
+export const addPostCreator = () => ({type: ADD_POST});
+export const updateNewPostTextCreator = (newTheme, newMessage) => ({
     type: UPDATE_NEW_POST_TEXT,
     newTheme: newTheme,
     newMessage: newMessage
+
 });
 
 export default profileReducer;

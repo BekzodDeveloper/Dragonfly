@@ -1,17 +1,31 @@
 import React from 'react';
 import './FriendsList.module.css';
-import StoreContext from "../../StoreContext";
 import FriendsList from "./FriendsList";
+import {connect} from "react-redux";
 
 
-const FriendsListContainer = () => {
-    return <StoreContext.Consumer>
+// const FriendsListContainer = () => {
+//     return <StoreContext.Consumer>{
+//         store => {
+//             return <FriendsList friendsList={store.getState().sidebar.friendsList}/>
+//         }
+//     }
+//     </StoreContext.Consumer>
+// }
 
-        {store => {
-            return <FriendsList friendsList={store.getState().sidebar.friendsList}/>
-        }}
+let mapStateToProps = (state) => {
+    return {
+        friendsList: state.sidebar.friendsList,
 
-    </StoreContext.Consumer>
+    }
+
 }
+let mapDispatchToProps = (dispatch) => {
+    return {
+    k:()=>{}
+    }
+}
+
+const FriendsListContainer = connect(mapStateToProps, mapDispatchToProps)(FriendsList);
 
 export default FriendsListContainer;
