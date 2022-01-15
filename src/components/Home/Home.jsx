@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Home.module.css';
-import {NavLink} from "react-router-dom";
 import {Outlet} from "react-router";
 
 

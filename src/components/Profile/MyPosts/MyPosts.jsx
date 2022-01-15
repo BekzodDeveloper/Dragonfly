@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './MyPosts.module.css';
 import Post from "./Post/Post";
-import {addPostAC, updateNewPostTextAC} from "../../../redux/profileReducer";
 
 const MyPosts = (props) => {
     let postsEl = props.posts.map(p => <Post theme={p.theme}

@@ -6,8 +6,8 @@ import Header from "./components/Header/Header";
 import Nav from "./components/Nav/Nav";
 import Profile from "./components/Profile/Profile";
 import Home from "./components/Home/Home";
-import FriendsList from "./components/Sidebar/FriendsList";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import FriendsListContainer from "./components/Sidebar/FriendsListContainer";
 
 
 const App = (props) => {
@@ -26,14 +26,11 @@ const App = (props) => {
                         <Route path='/' element={<Home/>}/>
 
                         <Route exact path='/profile'
-                               element={<Profile store={props.store}/>}
+                               element={<Profile/>}
                         />
                         <Route path='/dialogs'
-                               element={<DialogsContainer
-                                   store={props.store}
-                                   //dialogPage={props.state.dialogPage}
-                                   //dispatch={props.dispatch}
-                               />}/>
+                               element={<DialogsContainer/>}
+                        />
                         <Route exact path='/notification' element={<Page title="Notification"/>}/>
                         <Route exact path='/music' element={<Page title="Music"/>}/>
                         <Route exact path='/settings' element={<Page title="Settings"/>}/>
@@ -41,7 +38,7 @@ const App = (props) => {
                     </Routes>
                 </div>
                 <aside className="aside">
-                    <FriendsList sidebar={props.state.sidebar}/>
+                    <FriendsListContainer/>
                 </aside>
             </div>
         </div>

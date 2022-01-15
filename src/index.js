@@ -4,14 +4,14 @@ import './index.css';
 import App from './App';
 import {BrowserRouter as Router} from "react-router-dom";
 import store from "./redux/redux-store";
+import StoreContext from "./StoreContext";
 
 let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <Router>
-            <App store={store}
-                state={store.getState()}
-                 dispatch={store.dispatch.bind(store)}
-            />
+            <StoreContext.Provider value={store}>
+                <App/>
+            </StoreContext.Provider>
         </Router>,
         document.getElementById('root')
     );

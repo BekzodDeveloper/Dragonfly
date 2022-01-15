@@ -2,14 +2,14 @@ import React from 'react';
 import './FriendsList.module.css';
 import styles from "../../styles/sec-friends.module.css";
 import user1Photo from "./img/user1.png";
-import user2Photo from "./img/user2.png";
-import user3Photo from "./img/user3.png";
-import user4Photo from "./img/user4.png";
-import user5Photo from "./img/user5.png";
+// import user2Photo from "./img/user2.png";
+// import user3Photo from "./img/user3.png";
+// import user4Photo from "./img/user4.png";
+// import user5Photo from "./img/user5.png";
 
 
 const FriendsList = (props) => {
-    let friendsListEl = props.sidebar.friendsList.map(f => <FriendItem name={f.name} userPhoto={f.userPhoto} id={f.id}/>);
+    let friendsListEl = props.friendsList.map(f => <FriendItem name={f.name} userPhoto={f.userPhoto} id={f.id}/>);
 
 
     return (
@@ -27,13 +27,13 @@ const FriendsList = (props) => {
 
 const FriendItem = (props) => {
 
-    let userPhotos = [
-        {userPhoto: user1Photo},
-        {userPhoto: user2Photo},
-        {userPhoto: user3Photo},
-        {userPhoto: user4Photo},
-        {userPhoto: user5Photo}
-    ];
+    // let userPhotos = [
+    //     {userPhoto: user1Photo},
+    //     {userPhoto: user2Photo},
+    //     {userPhoto: user3Photo},
+    //     {userPhoto: user4Photo},
+    //     {userPhoto: user5Photo}
+    // ];
 
     let path = "/friend/" + props.id;
     return (
