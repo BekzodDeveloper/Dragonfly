@@ -9,7 +9,8 @@ import user1Photo from "./img/user1.png";
 
 
 const FriendsList = (props) => {
-    let friendsListEl = props.friendsList.map(f => <FriendItem name={f.name} userPhoto={f.userPhoto} id={f.id}/>);
+    let friendsListEl = props.friendsList.map(f => <FriendItem name={f.name} userPhoto={f.userPhoto}
+                                                               id={f.id} key={f.id}/>);
 
 
     return (

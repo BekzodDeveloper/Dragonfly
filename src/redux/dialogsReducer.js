@@ -28,35 +28,33 @@ let initialState = {
         {id: 6, messageText: "Assalomu Aleykum! Assalomu Aleykum!"},
         {id: 7, messageText: "Assalomu Aleykum! Assalomu Aleykum!"},
         {id: 8, messageText: "Assalomu Aleykum! Assalomu Aleykum!"},
-        {id: 1, messageText: "Assalomu Aleykum!"},
-        {id: 2, messageText: "Vaaleykum Assalom!"},
-        {id: 3, messageText: "Assalomu Aleykum! Assalomu Aleykum!"},
-        {id: 4, messageText: "Assalomu Aleykum"},
-        {id: 5, messageText: "Zoyir"},
-        {id: 6, messageText: "Assalomu Aleykum! Assalomu Aleykum!"},
-        {id: 7, messageText: "Assalomu Aleykum! Assalomu Aleykum!"},
-        {id: 8, messageText: "Assalomu Aleykum! Assalomu Aleykum!"},
+        {id: 9, messageText: "Vaaleykum Assalom!"},
+        {id: 10, messageText: "Assalomu Aleykum! Assalomu Aleykum!"},
+        {id: 11, messageText: "Assalomu Aleykum"},
 
     ],
     sendMessageData: '',
 };
 const dialogsReducer = (state = initialState, action) => {
+    let stateCopy = {...state};
+    stateCopy.dialogs = [...state.dialogs];
+    stateCopy.messages = [...state.messages];
+
     switch (action.type) {
         case SEND_MESSAGE:
-            let newMessageData = {
-                id: 5,
-                messageText: state.sendMessageData,
-            };
-            state.messages.push(newMessageData);
-            state.sendMessageData = '';
-            return state;
-
+            return {
+                ...state,
+                messages: [...state.messages, {id:122, messageText: state.sendMessageData,}],
+                sendMessageData: ''
+            }
         case UPDATE_NEW_MESSAGE:
-            state.sendMessageData = action.newMessage;
-            return state;
+            return {
+                ...state,
+                sendMessageData: action.newMessage
+            };
 
         default:
-            return state;
+            return stateCopy;
     }
 }
 export const sendMessageAC = () => ({type: SEND_MESSAGE});

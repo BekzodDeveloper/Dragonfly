@@ -14,16 +14,16 @@ import moreImg from "./img/more.svg";
 const Nav = (props) => {
 
     let navItems = [
-        {path: "/", icon: homeImg, navText: "Home"},
-        {path: "/profile", icon: userImg, navText: "Profile"},
-        {path: "/dialogs", icon: messageImg, navText: "Messages"},
-        {path: "/notification", icon: notificationImg, navText: "Notification"},
-        {path: "/music", icon: musicImg, navText: "Music"},
-        {path: "/settings", icon: settingsImg, navText: "Settings"},
-        {path: "/more", icon: moreImg, navText: "More"},
+        {id: 1, path: "/", icon: homeImg, navText: "Home"},
+        {id: 2, path: "/profile", icon: userImg, navText: "Profile"},
+        {id: 3, path: "/dialogs", icon: messageImg, navText: "Messages"},
+        {id: 4, path: "/notification", icon: notificationImg, navText: "Notification"},
+        {id: 5, path: "/music", icon: musicImg, navText: "Music"},
+        {id: 6, path: "/settings", icon: settingsImg, navText: "Settings"},
+        {id: 7, path: "/more", icon: moreImg, navText: "More"},
     ];
 
-    let navItemsEl = navItems.map(n => <NavItem path={n.path} icon={n.icon} navText={n.navText}/>);
+    let navItemsEl = navItems.map(n => <NavItem path={n.path} icon={n.icon} navText={n.navText} key={n.id}/>);
 
     return (
         <nav className={styles.nav}>

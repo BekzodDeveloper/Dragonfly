@@ -1,9 +1,7 @@
-import {act} from "@testing-library/react";
-
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
-let initialState = {
+let initialState = {//profilePage
     posts: [
         {
             id: 1,
@@ -41,27 +39,37 @@ let initialState = {
 };
 
 const profileReducer = (state = initialState, action) => {
+
     switch (action.type) {
-        case ADD_POST:
-
-            let newPost = {
-                id: 5,
-                theme: state.addPostData.newThemeText,
-                postText: state.addPostData.newMessageText,
-                profileImg: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
-                likesCount: 0
+        case ADD_POST: {
+            return {
+                ...state,
+                posts: [{
+                    id: 5,
+                    theme: state.addPostData.newThemeText,
+                    postText: state.addPostData.newMessageText,
+                    profileImg: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
+                    likesCount: 0
+                }, ...state.posts],
+                addPostData: {
+                    ...state.addPostData,
+                    newThemeText: '',
+                    newMessageText: ''
+                }
             };
-            state.posts.push(newPost);
+        }
 
-            state.addPostData.newThemeText = '';
-            state.addPostData.newMessageText = '';
-            console.log()
-            return state;
-        case UPDATE_NEW_POST_TEXT:
-            state.addPostData.newThemeText = action.newTheme;
-            state.addPostData.newMessageText = action.newMessage;
-            // console.log(state.addPostData.newThemeText)
-            return state;
+        case UPDATE_NEW_POST_TEXT: {
+            return {
+                ...state,
+                addPostData: {
+                    ...state.addPostData,
+                    newThemeText: action.newTheme,
+                    newMessageText: action.newMessage
+                }
+            };
+        }
+
         default:
             return state;
     }

@@ -3,10 +3,12 @@ import styles from './MyPosts.module.css';
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-    let postsEl = props.posts.map(p => <Post theme={p.theme}
+    let postsEl = props.posts.map(p => <Post id={p.id}
+                                             theme={p.theme}
                                              postText={p.postText}
                                              profileImg={p.profileImg}
-                                             likesCount={p.likesCount}/>);
+                                             likesCount={p.likesCount}
+                                             key={p.id}/>);
 
     let newPostThemeEl = React.createRef();
     let newPostMessageEl = React.createRef();
