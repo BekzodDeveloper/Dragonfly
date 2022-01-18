@@ -9,6 +9,7 @@ import notificationImg from "./img/notif.svg";
 import musicImg from "./img/music.svg";
 import settingsImg from "./img/settings.svg";
 import moreImg from "./img/more.svg";
+import usersImg from "./img/users.png";
 
 
 const Nav = (props) => {
@@ -17,10 +18,11 @@ const Nav = (props) => {
         {id: 1, path: "/", icon: homeImg, navText: "Home"},
         {id: 2, path: "/profile", icon: userImg, navText: "Profile"},
         {id: 3, path: "/dialogs", icon: messageImg, navText: "Messages"},
-        {id: 4, path: "/notification", icon: notificationImg, navText: "Notification"},
-        {id: 5, path: "/music", icon: musicImg, navText: "Music"},
-        {id: 6, path: "/settings", icon: settingsImg, navText: "Settings"},
-        {id: 7, path: "/more", icon: moreImg, navText: "More"},
+        {id: 4, path: "/users", icon: usersImg, navText: "Users"},
+        {id: 5, path: "/notification", icon: notificationImg, navText: "Notification"},
+        {id: 6, path: "/music", icon: musicImg, navText: "Music"},
+        {id: 7, path: "/settings", icon: settingsImg, navText: "Settings"},
+        {id: 8, path: "/more", icon: moreImg, navText: "More"},
     ];
 
     let navItemsEl = navItems.map(n => <NavItem path={n.path} icon={n.icon} navText={n.navText} key={n.id}/>);

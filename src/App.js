@@ -8,6 +8,7 @@ import Profile from "./components/Profile/Profile";
 import Home from "./components/Home/Home";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import FriendsListContainer from "./components/Sidebar/FriendsListContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 
 const App = () => {
@@ -35,6 +36,7 @@ const App = () => {
                         <Route exact path='/music' element={<Page title="Music"/>}/>
                         <Route exact path='/settings' element={<Page title="Settings"/>}/>
                         <Route exact path='/more' element={<Page title="More"/>}/>
+                        <Route exact path='/users' element={<UsersContainer/>}/>
                     </Routes>
                 </div>
                 <aside className="aside">
