@@ -8,7 +8,7 @@ class Users extends React.Component {
     constructor(props) {
         super(props);
 
-        //Work request when: 1) first time; 2) you clicked to this page from other page;
+        //Work request when: 1) first time; 2) yo clicked to this page from other page;
         axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
             this.props.setUsers(response.data.items);
         });
