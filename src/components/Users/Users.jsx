@@ -3,7 +3,6 @@ import userPhotoDefault from "./../../assets/Users/images/user-default.png";
 import './Users.scss';
 
 let Users = (props) => {
-
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
     let pages = [];
