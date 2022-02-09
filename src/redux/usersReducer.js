@@ -1,5 +1,3 @@
-import {act} from "@testing-library/react";
-
 const FOLLOW = "FOLLOW";
 const UN_FOLLOW = "UN_FOLLOW";
 const SET_USERS = "SET_USERS";

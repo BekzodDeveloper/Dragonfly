@@ -26,17 +26,17 @@ const App = () => {
                     <Routes>
                         <Route path='/' element={<Home/>}/>
 
-                        <Route exact path='/profile'
+                        <Route path='/profile'
                                element={<Profile/>}
                         />
                         <Route path='/dialogs'
                                element={<DialogsContainer/>}
                         />
-                        <Route exact path='/notification' element={<Page title="Notification"/>}/>
-                        <Route exact path='/music' element={<Page title="Music"/>}/>
-                        <Route exact path='/settings' element={<Page title="Settings"/>}/>
-                        <Route exact path='/more' element={<Page title="More"/>}/>
-                        <Route exact path='/users' element={<UsersContainer/>}/>
+                        <Route path='/notification' element={<Page title="Notification"/>}/>
+                        <Route path='/music' element={<Page title="Music"/>}/>
+                        <Route path='/settings' element={<Page title="Settings"/>}/>
+                        <Route path='/more' element={<Page title="More"/>}/>
+                        <Route path='/users' element={<UsersContainer/>}/>
                     </Routes>
                 </div>
                 <aside className="aside">

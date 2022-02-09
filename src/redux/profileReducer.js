@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const SET_USER_PROFILE = 'SET_USER_PROFILE';
 
 let initialState = {//profilePage
     posts: [
@@ -25,13 +26,7 @@ let initialState = {//profilePage
             likesCount: 91,
         },
     ],
-    profileInfoData: {
-        name: "Bekzod",
-        sureName: "Kholdarov",
-        about: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, minus!",
-        profilePhoto: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
-        profileBg: "https://images.unsplash.com/photo-1636956040469-fec02ed01ab5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGJnJTIwc29jaWFsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-    },
+    profileInfoData: '',
     addPostData: {
         newThemeText: '',
         newMessageText: ''
@@ -70,16 +65,24 @@ const profileReducer = (state = initialState, action) => {
             };
         }
 
+        case SET_USER_PROFILE: {
+            // debugger
+            return {...state, profileInfoData: action.profileInfoData};
+        }
+
         default:
             return state;
     }
 }
+//MyPosts
 export const addPostAC = () => ({type: ADD_POST});
 export const updateNewPostTextAC = (newTheme, newMessage) => ({
     type: UPDATE_NEW_POST_TEXT,
     newTheme: newTheme,
     newMessage: newMessage
-
 });
+
+//ProfileInfo
+export const setUserProfile = (profileInfoData) => ({type: SET_USER_PROFILE, profileInfoData});
 
 export default profileReducer;
