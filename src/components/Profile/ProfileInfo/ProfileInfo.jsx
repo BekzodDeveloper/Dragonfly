@@ -1,9 +1,7 @@
 import React from 'react';
 import styles from './ProfileInfo.module.css';
-import {Link, NavLink} from "react-router-dom";
 import Preloader from "../../common/Preloader/Preloader";
 
-// import profileBg from "";
 
 
 const ProfileInfo = (props) => {
