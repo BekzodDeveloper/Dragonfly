@@ -1,22 +1,32 @@
 import React from 'react';
 import styles from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
-
+import accountImg from "./../../../assets/Profile/avatar-profile.png"
 
 
 const ProfileInfo = (props) => {
-    // debugger
     if (!props.profileInfoData) return <Preloader/>
+
+    let contacts = [props.profileInfoData.contacts.facebook,
+        props.profileInfoData.contacts.vk,
+        props.profileInfoData.contacts.github];
+    let contactEls = contacts.map(c => {
+        return !c ? '' :
+            c.includes('https://') ?
+                <a href={c} style={{display: 'block'}}>{c}</a>
+                : <a href={'https://' + c} style={{display: 'block'}}>{'https://' + c}</a>;
+    })
+
     return (
         <div>
             <div className={styles.profile__bg}>
                 <img
-                    src='https://images.unsplash.com/photo-1636956040469-fec02ed01ab5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fGJnJTIwc29jaWFsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'
+                    src='https://images.pexels.com/photos/122458/pexels-photo-122458.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
                     alt="bg"/>
             </div>
             <div className={styles.infoContent}>
                 <div className={styles.ava}><img
-                    src={props.profileInfoData.photos.large}
+                    src={props.profileInfoData.photos.large ? props.profileInfoData.photos.large : accountImg}
                     alt="profile"/></div>
                 <div className={styles.infoDesc}>
                     <div className={styles.fullName}>
@@ -31,9 +41,7 @@ const ProfileInfo = (props) => {
                     </div>
                     <div className={styles.contacts}>
                         <div>
-                            <a href={`https://${props.profileInfoData.contacts.facebook}`}>Facebook</a>
-                            <a href={`https://${props.profileInfoData.contacts.vk}`}>VK</a>
-                            <a href={`https://${props.profileInfoData.contacts.github}`}>GitHub</a>
+                            {contactEls}
                         </div>
                     </div>
                 </div>

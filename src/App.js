@@ -2,13 +2,13 @@ import React from 'react';
 import './App.css';
 
 import {Routes, Route} from 'react-router-dom' ;
-import Header from "./components/Header/Header";
 import Nav from "./components/Nav/Nav";
 import Profile from "./components/Profile/Profile";
 import Home from "./components/Home/Home";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import FriendsListContainer from "./components/Sidebar/FriendsListContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
     return (
         <div className="app-wrapper">
 
-            <Header/>
+            <HeaderContainer/>
             <div className="app-body">
                 <div className="sidebar">
                     <Nav/>

@@ -3,7 +3,7 @@ import styles from './Header.module.css';
 import {NavLink} from "react-router-dom";
 import searchImg from "./img/search.svg";
 import logoImg from "./img/logo.svg";
-import accountImg from "./img/accountPhoto.png"
+import accountImg from "../../assets/Profile/avatar-profile.png"
 
 
 const Header = (props) => {
@@ -13,6 +13,7 @@ const Header = (props) => {
         let searchText = searchTextRef.current.value;
         alert(searchText);
     }
+    // debugger
 
     return (
         <header className={styles.header}>
@@ -20,9 +21,7 @@ const Header = (props) => {
                 <div className={styles.logoSearchWrapper}>
                     <NavLink className={styles.logoLink} to="/">
                         <div className={styles.logoImgWrapper}>
-                            <img
-                                src={logoImg}
-                                alt="logo"/>
+                            <img src={logoImg} alt="logo"/>
                         </div>
                     </NavLink>
                     <div className={styles.searchInput}>
@@ -32,14 +31,17 @@ const Header = (props) => {
                     </div>
 
                 </div>
-
                 <div className={styles.account}>
-                    <a href="/" className={styles.accountInner}>
-                        <div className={styles.accountImgWrapper}>
-                            <img className={styles.accountImg} src={accountImg} alt="accountImg"/>
+                    {props.isAuth ? <NavLink to={"/profile"} className={styles.accountInner}>
+                            <div className={styles.accountImgWrapper}>
+                                <img className={styles.accountImg} src={accountImg} alt="accountImg"/>
+                            </div>
+                            <div className={styles.accountName}>{props.login}</div>
+                        </NavLink>
+                        : <div>
+                            <NavLink to='/login'>Login</NavLink>
                         </div>
-                        <div className={styles.accountName}>Bekzod</div>
-                    </a>
+                    }
                 </div>
             </div>
 
