@@ -2,8 +2,10 @@ import React from "react";
 import userPhotoDefault from "./../../assets/Users/images/user-default.png";
 import './Users.scss';
 import {NavLink} from "react-router-dom";
+import * as axios from "axios";
 
 let Users = (props) => {
+    let apiKey = '48241a7b-867d-4a3c-8b63-547021115f67';
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
 
     let pages = [];
@@ -13,8 +15,9 @@ let Users = (props) => {
     return <div>
         <h1 className="pageTitle">Users</h1>
         <div>
-            {pages.map(p => <span key={p} onClick={() => {props.onPageChanged(p);}}
-                className={`pagItem ${props.currentPage === p && 'selectedPage'}`}>{p}</span>)}
+            {pages.map(p => <span key={p} onClick={() => {
+                props.onPageChanged(p);
+            }} className={`pagItem ${props.currentPage === p && 'selectedPage'}`}>{p}</span>)}
         </div>
         <div className='usersList'>
             {props.users.map(user => <div className='userItem' key={user.id}>
@@ -26,11 +29,30 @@ let Users = (props) => {
                                 </NavLink>
                             </div>
                             <div className='followBtn'>
-                                {user.followed ? <button onClick={() => {
-                                        props.unFollow(user.id)
+                                {user.followed ?
+                                    <button onClick={() => {
+                                        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
+                                            withCredentials: true, headers: {"API-KEY": apiKey}
+                                        }).then(response => {
+                                            if (response.data.resultCode == 0) {
+                                                props.unFollow(user.id);
+                                            }
+                                        });
+
                                     }}>Unfollow</button>
                                     : <button onClick={() => {
-                                        props.follow(user.id)
+                                        debugger
+
+                                        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
+                                            withCredentials: true,
+                                            headers: {"API-KEY": apiKey}
+
+                                        }).then(response => {
+                                            if (response.data.resultCode == 0) {
+                                                props.follow(user.id);
+                                            }
+                                        });
+
                                     }}>Follow</button>
                                 }
 
