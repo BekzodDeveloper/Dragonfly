@@ -33,6 +33,10 @@
     margin-top: 10px;
     padding:5px 10px;
     cursor: pointer;
+    &:disabled{
+        background-color: gray;
+        //font-size: 100px;
+    }
 }
 
 .itemContent {
