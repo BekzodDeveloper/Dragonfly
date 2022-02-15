@@ -13,6 +13,9 @@ export const usersAPI = {
 export const profileAPI = {
     getProfile(userId=7255) {
         return instance.get(`profile/${userId}`).then(response => response.data);
+    },
+    setAuthUser(){
+        return instance.get(`auth/me/`).then(response => response.data);
     }
 }
 export const followAPI = {

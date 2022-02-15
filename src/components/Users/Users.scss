@@ -1,80 +1,97 @@
 
 .userItem {
-    margin-bottom: 50px;
-    margin-top: 20px;
+  margin-bottom: 50px;
+  margin-top: 20px;
 
 }
-.userItemInner{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
-    padding: 0 20px;
+.userItemInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 20px;
 }
 
 .itemMain {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .itemPhoto img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: block;
 }
 
-.followBtn button{
-    background-color: #000;
-    color: #ffffff;
-    border: none;
-    margin-top: 10px;
-    padding:5px 10px;
-    cursor: pointer;
-    &:disabled{
-        background-color: gray;
-        //font-size: 100px;
-    }
+.followBtn {
+  background-color: #000;
+  color: #ffffff;
+  border: none;
+  margin-top: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  &:disabled {
+    background-color: gray;
+  }
+}
+
+.unFollowBtn {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+  margin-top: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+  &:disabled {
+    background-color: gray;
+  }
 }
 
 .itemContent {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-    width: 100%;
-    margin-left: 20px;
-    border: 1px solid #000;
-    padding: 20px;
+  width: 100%;
+  margin-left: 20px;
+  border: 1px solid #000;
+  padding: 20px;
 
 }
 
 .itemDescr {
 
 }
-.itemDescrFullName{
-    font-weight: 700;
-    font-size:18px;
-    margin-bottom: 15px;
+
+.itemDescrFullName {
+  font-weight: 700;
+  font-size: 18px;
+  margin-bottom: 15px;
 }
-.itemDescrStatus{}
+
+.itemDescrStatus {
+}
 
 .itemLocation {
 
 }
-.selectedPage{
-    font-weight: 900;
+
+.selectedPage {
+  font-weight: 900;
 }
-.pagItem{
-    padding: 2px;
-    cursor: pointer;
-    border:1px solid black;
-    border-radius: 2px;
-    display: inline-block;
-    margin: 2px;
-    width: 34px;
-    height: 25px;
-    text-align: center;
+
+.pagItem {
+  padding: 2px;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 2px;
+  display: inline-block;
+  margin: 2px;
+  width: 34px;
+  height: 25px;
+  text-align: center;
 }
