@@ -4,14 +4,15 @@ import './Users.scss';
 import {NavLink} from "react-router-dom";
 
 let Users = (props) => {
+
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize),
-        pages = [];
+        pages = [],
+        pagesList = pages.map(p => <span key={p} onClick={() => {
+            props.onPageChanged(p);}} className={`pagItem ${props.currentPage === p && 'selectedPage'}`}>{p}</span>);
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
-    let pagesList = pages.map(p => <span key={p} onClick={() => {
-        props.onPageChanged(p);
-    }} className={`pagItem ${props.currentPage === p && 'selectedPage'}`}>{p}</span>);
+
 
     return <div>
         <h1 className="pageTitle">Users</h1>
@@ -41,9 +42,9 @@ let Users = (props) => {
                             </div>
                         </div>
                         <div className='itemContent'>
-                            <div className='itemDescr'><p
-                                className='itemDescrFullName'>{user.name}</p><p
-                                className='itemDescrStatus'>{user.status}</p></div>
+                            <div className='itemDescr'>
+                                <p className='itemDescrFullName'>{user.name}</p>
+                                <p className='itemDescrStatus'>{user.status}</p></div>
                             <div className='itemLocation'><p>{"user.location.city"}, </p>
                                 <p>{"user.location.country"}</p>
                             </div>

@@ -5,16 +5,18 @@ import accountImg from "./../../../assets/Profile/avatar-profile.png"
 
 
 const ProfileInfo = (props) => {
+    // debugger
     if (!props.profileInfoData) return <Preloader/>
 
     let contacts = [props.profileInfoData.contacts.facebook,
         props.profileInfoData.contacts.vk,
         props.profileInfoData.contacts.github];
     let contactEls = contacts.map(c => {
+        debugger
         return !c ? '' :
             c.includes('https://') ?
-                <a href={c} style={{display: 'block'}}>{c}</a>
-                : <a href={'https://' + c} style={{display: 'block'}}>{'https://' + c}</a>;
+                <a key={c.userId} href={c} style={{display: 'block'}}>{c}</a>
+                : <a key={c.userId} href={'https://' + c} style={{display: 'block'}}>{'https://' + c}</a>;
     })
 
     return (
