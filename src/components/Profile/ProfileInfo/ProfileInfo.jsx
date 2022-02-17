@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
 import accountImg from "./../../../assets/Profile/avatar-profile.png"
-
+import {Navigate} from 'react-router-dom';
 
 const ProfileInfo = (props) => {
     // debugger
@@ -18,6 +18,7 @@ const ProfileInfo = (props) => {
                 <a key={c.userId} href={c} style={{display: 'block'}}>{c}</a>
                 : <a key={c.userId} href={'https://' + c} style={{display: 'block'}}>{'https://' + c}</a>;
     })
+    if (!props.isAuth) return <Navigate to='/login'/>
 
     return (
         <div>

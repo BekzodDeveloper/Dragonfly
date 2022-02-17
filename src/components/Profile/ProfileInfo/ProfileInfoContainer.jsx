@@ -19,6 +19,8 @@ class ProfileInfoContainer extends React.Component {
         return <ProfileInfo
             //{...this.props}
             profileInfoData={this.props.profileInfoData}
+            isAuth={this.props.isAuth}
+
         />
     }
 }
@@ -28,6 +30,7 @@ const withParams = (Component) => props => <Component {...props} params={usePara
 
 let mapStateToProps = (state) => ({
     profileInfoData: state.profilePage.profileInfoData,
+    isAuth:state.auth.isAuth
 });
 
 export default connect(mapStateToProps, {getUserProfile})(withParams(ProfileInfoContainer));

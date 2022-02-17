@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 const mapStateToProps = (state) => {
     return {
         dialogPage: state.dialogPage,
+        isAuth: state.auth.isAuth
 
     }
 
@@ -22,6 +23,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
-
-export default DialogsContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(Dialogs);
