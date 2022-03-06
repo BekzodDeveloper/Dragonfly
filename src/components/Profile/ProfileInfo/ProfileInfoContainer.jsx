@@ -4,6 +4,9 @@ import ProfileInfo from "./ProfileInfo";
 import Preloader from "../../common/Preloader/Preloader";
 import {getUserProfile} from "../../../redux/profileReducer";
 import {useParams} from "react-router-dom";
+import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
+import {compose} from "redux";
+import Dialogs from "../../Dialogs/Dialogs";
 
 class ProfileInfoContainer extends React.Component {
 
@@ -25,12 +28,13 @@ class ProfileInfoContainer extends React.Component {
     }
 }
 
-//hook useParams
 const withParams = (Component) => props => <Component {...props} params={useParams()}/>;
 
 let mapStateToProps = (state) => ({
-    profileInfoData: state.profilePage.profileInfoData,
-    isAuth:state.auth.isAuth
+    profileInfoData: state.profilePage.profileInfoData
 });
-
-export default connect(mapStateToProps, {getUserProfile})(withParams(ProfileInfoContainer));
+export default compose(
+    connect(mapStateToProps, {getUserProfile}),
+    withParams,
+    withAuthRedirect
+)(ProfileInfoContainer);
