@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
 import accountImg from "./../../../assets/Profile/avatar-profile.png";
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileInfo = (props) => {
     // debugger
@@ -11,7 +12,7 @@ const ProfileInfo = (props) => {
         props.profileInfoData.contacts.vk,
         props.profileInfoData.contacts.github];
     let contactEls = contacts.map(c => {
-        debugger
+        
         return !c ? '' :
             c.includes('https://') ?
                 <a key={c.userId} href={c} style={{display: 'block'}}>{c}</a>
@@ -39,7 +40,7 @@ const ProfileInfo = (props) => {
                     </div>
                     <div className={styles.status}>
                         <div><span>Looking for a job: </span>{props.profileInfoData.lookingForAJob ? 'Yes' : 'No'}</div>
-                        <div><span>Description: </span>{props.profileInfoData.lookingForAJobDescription}</div>
+                        <ProfileStatus status={"I'm looking for a job!!!"}/>
                     </div>
                     <div className={styles.contacts}>
                         <div>

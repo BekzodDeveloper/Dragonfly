@@ -63,7 +63,7 @@ const dialogsReducer = (state = initialState, action) => {
             return stateCopy;
     }
 }
-export const sendMessageAC = () => ({type: SEND_MESSAGE});
-export const updateNewMessageAC = (text) => ({type: UPDATE_NEW_MESSAGE, newMessage: text});
+export const sendMessageAC = () => ({type: SEND_MESSAGE}),
+    updateNewMessageAC = (text) => ({type: UPDATE_NEW_MESSAGE, newMessage: text});
 
 export default dialogsReducer;

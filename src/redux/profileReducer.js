@@ -76,21 +76,19 @@ const profileReducer = (state = initialState, action) => {
             return state;
     }
 }
-//MyPosts
-export const addPostAC = () => ({type: ADD_POST});
-export const updateNewPostTextAC = (newTheme, newMessage) => ({
-    type: UPDATE_NEW_POST_TEXT,
-    newTheme: newTheme,
-    newMessage: newMessage
-});
-
-//ProfileInfo
-export const setUserProfile = (profileInfoData) => ({type: SET_USER_PROFILE, profileInfoData});
-
-export const getUserProfile = (userId) => (dispatch) => {
-    usersAPI.getProfile(userId).then(response => {
-        dispatch(setUserProfile(response.data));
-    });
-}
+    //MyPosts
+export const addPostAC = () => ({type: ADD_POST}),
+    updateNewPostTextAC = (newTheme, newMessage) => ({
+        type: UPDATE_NEW_POST_TEXT,
+        newTheme: newTheme,
+        newMessage: newMessage
+    }),
+    //ProfileInfo
+    setUserProfile = (profileInfoData) => ({type: SET_USER_PROFILE, profileInfoData}),
+    getUserProfile = (userId) => (dispatch) => {
+        usersAPI.getProfile(userId).then(response => {
+            dispatch(setUserProfile(response.data));
+        });
+    }
 
 export default profileReducer;

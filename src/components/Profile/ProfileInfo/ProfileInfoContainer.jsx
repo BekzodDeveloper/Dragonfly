@@ -6,7 +6,6 @@ import {getUserProfile} from "../../../redux/profileReducer";
 import {useParams} from "react-router-dom";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 import {compose} from "redux";
-import Dialogs from "../../Dialogs/Dialogs";
 
 class ProfileInfoContainer extends React.Component {
 
