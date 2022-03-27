@@ -40,7 +40,7 @@ const ProfileInfo = (props) => {
                     </div>
                     <div className={styles.status}>
                         <div><span>Looking for a job: </span>{props.profileInfoData.lookingForAJob ? 'Yes' : 'No'}</div>
-                        <ProfileStatus status={"I'm looking for a job!!!"}/>
+                        <ProfileStatus status={"I'm looking job!!!"}/>
                     </div>
                     <div className={styles.contacts}>
                         <div>
