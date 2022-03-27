@@ -2,7 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import ProfileInfo from "./ProfileInfo";
 import Preloader from "../../common/Preloader/Preloader";
-import {getUserProfile} from "../../../redux/profileReducer";
+import {getUserProfile, getUserStatus, updateUserStatus} from "../../../redux/profileReducer";
 import {useParams} from "react-router-dom";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 import {compose} from "redux";
@@ -12,6 +12,7 @@ class ProfileInfoContainer extends React.Component {
     componentDidMount() {
         let userId = this.props.params.userId;
         this.props.getUserProfile(userId);
+        this.props.getUserStatus(userId);
     }
 
     render() {
@@ -22,6 +23,8 @@ class ProfileInfoContainer extends React.Component {
             //{...this.props}
             profileInfoData={this.props.profileInfoData}
             isAuth={this.props.isAuth}
+            status={this.props.status}
+            updateUserStatus={this.props.updateUserStatus}
 
         />
     }
@@ -30,10 +33,11 @@ class ProfileInfoContainer extends React.Component {
 const withParams = (Component) => props => <Component {...props} params={useParams()}/>;
 
 let mapStateToProps = (state) => ({
-    profileInfoData: state.profilePage.profileInfoData
+    profileInfoData: state.profilePage.profileInfoData,
+    status: state.profilePage.status
 });
 export default compose(
-    connect(mapStateToProps, {getUserProfile}),
+    connect(mapStateToProps, {getUserProfile, getUserStatus, updateUserStatus}),
     withParams,
     // withAuthRedirect
 )(ProfileInfoContainer);
