@@ -112,5 +112,5 @@ export const setUserProfile = (profileInfoData) => ({type: SET_USER_PROFILE, pro
                 dispatch(setUserStatus(status));
             }
         });
-        console.log(status)
+        // console.log(status)
     }

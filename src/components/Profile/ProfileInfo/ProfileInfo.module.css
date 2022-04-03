@@ -41,4 +41,9 @@
     display: inline-block;
     margin: 0 5px;
 }
+.profile__status{
+    cursor: pointer;
+    font-weight: 400;
+    display: inline-block;
+}
 
