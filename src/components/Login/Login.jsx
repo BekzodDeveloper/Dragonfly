@@ -1,11 +1,9 @@
 import React from 'react';
-import {Field, reduxForm} from 'redux-form'
+import {Field, reduxForm} from 'redux-form';
 
 const LoginForm = (props) => {
     return (
-        <form
-            onSubmit={props.handleSubmit}
-        >
+        <form onSubmit={props.handleSubmit}>
             <div>
                 <label htmlFor="Login">Login: </label>
                 <Field name="login" component="input" type="text" placeholder="Login"/>
