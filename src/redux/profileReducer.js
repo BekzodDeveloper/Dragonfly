@@ -1,7 +1,6 @@
 import {profileAPI, usersAPI} from "../api/api";
 
 const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_USER_STATUS = 'SET_USER_STATUS';
 
@@ -30,10 +29,6 @@ let initialState = {//profilePage
         },
     ],
     profileInfoData: '',
-    addPostData: {
-        newThemeText: '',
-        newMessageText: ''
-    },
     status: ''
 };
 
@@ -45,27 +40,11 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 posts: [{
                     id: 5,
-                    theme: state.addPostData.newThemeText,
-                    postText: state.addPostData.newMessageText,
+                    theme: action.newThemeText,
+                    postText: action.newMessageText,
                     profileImg: "https://i.pinimg.com/originals/f1/c1/98/f1c1985141ae734194fe69fd52dcb4eb.jpg",
                     likesCount: 0
-                }, ...state.posts],
-                addPostData: {
-                    ...state.addPostData,
-                    newThemeText: '',
-                    newMessageText: ''
-                }
-            };
-        }
-
-        case UPDATE_NEW_POST_TEXT: {
-            return {
-                ...state,
-                addPostData: {
-                    ...state.addPostData,
-                    newThemeText: action.newTheme,
-                    newMessageText: action.newMessage
-                }
+                }, ...state.posts]
             };
         }
         case SET_USER_STATUS: {
@@ -84,12 +63,7 @@ const profileReducer = (state = initialState, action) => {
 export default profileReducer;
 
 //MyPosts
-export const addPostAC = () => ({type: ADD_POST}),
-    updateNewPostTextAC = (newTheme, newMessage) => ({
-        type: UPDATE_NEW_POST_TEXT,
-        newTheme: newTheme,
-        newMessage: newMessage
-    });
+export const addPostAC = (newThemeText, newMessageText) => ({type: ADD_POST, newThemeText, newMessageText});
 
 //ProfileInfo
 export const setUserProfile = (profileInfoData) => ({type: SET_USER_PROFILE, profileInfoData}),

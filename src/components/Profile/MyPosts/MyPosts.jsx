@@ -1,6 +1,11 @@
 import React from 'react';
 import styles from './MyPosts.module.css';
 import Post from "./Post/Post";
+import {Field, reduxForm} from "redux-form";
+import {maxLengthCreator, required} from "../../../utils/validators/validators";
+import {Textarea} from "../../common/FormsControls/FormsControls";
+
+const maxLength5 = maxLengthCreator(5);
 
 const MyPosts = (props) => {
     let postsEl = props.posts.map(p => <Post id={p.id}
@@ -10,18 +15,8 @@ const MyPosts = (props) => {
                                              likesCount={p.likesCount}
                                              key={p.id}/>);
 
-    let newPostThemeEl = React.createRef();
-    let newPostMessageEl = React.createRef();
-
-
-    let addPost = () => {
-        props.addPost();
-    }
-
-    let onPostChange = () => {
-        let themeValue = newPostThemeEl.current.value;
-        let messageValue = newPostMessageEl.current.value;
-        props.updateNewPostText(themeValue, messageValue);
+    let addPost = (values) => {
+        props.addPost(values.newThemeText, values.newMessageText);
     }
 
 
@@ -29,28 +24,39 @@ const MyPosts = (props) => {
         <div className={styles.myPosts}>
             <h3>My post</h3>
             <div className={styles.addPost}>
-                <div className={styles.addPostInner}>
-                    <div className={styles.addPostTheme}>
-                    <textarea onChange={onPostChange}
-                              value={props.addPostData.newThemeText}
-                              ref={newPostThemeEl}
-                              cols="30" rows="3" placeholder="Theme..."/></div>
-                    <div className={styles.addPostMessage}>
-                    <textarea onChange={onPostChange}
-                              value={props.addPostData.newMessageText}
-                              ref={newPostMessageEl}
-                              cols="30" rows="3" placeholder="Text..."/>
-                    </div>
-                </div>
-
-                <div>
-                    <button onClick={addPost}>Add post</button>
-                </div>
+                <AddNewPostFormRedux onSubmit={addPost}/>
             </div>
             {postsEl}
 
         </div>
     );
 }
+
+const AddNewPostForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div className={styles.addPostInner}>
+                <div className={styles.addPostTheme}>
+                    <Field validate={[required, maxLength5]}
+                           component={Textarea}
+                           name="newThemeText"
+                           cols="30" rows="3" placeholder="Theme..."/>
+                </div>
+                <div className={styles.addPostMessage}>
+                    <Field validate={[required, maxLength5]}
+                           component={Textarea}
+                           name="newMessageText"
+                           cols="30" rows="3" placeholder="Text..."/>
+                </div>
+            </div>
+
+            <div>
+                <button>Add post</button>
+            </div>
+        </form>
+    )
+}
+
+const AddNewPostFormRedux = reduxForm({form: "mypostsAddNewPostForm"})(AddNewPostForm);
 
 export default MyPosts;
