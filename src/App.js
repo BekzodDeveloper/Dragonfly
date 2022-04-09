@@ -13,7 +13,6 @@ import Login from "./components/Login/Login";
 
 
 const App = () => {
-    // const shouldRedirect = false;
     return (
         <div className="app-wrapper">
 
@@ -44,9 +43,9 @@ const App = () => {
                         <Route path='/login' element={<Login/>}/>
                     </Routes>
                 </div>
-                <aside className="aside">
-                    <FriendsListContainer/>
-                </aside>
+                {/*<aside className="aside">*/}
+                {/*    <FriendsListContainer/>*/}
+                {/*</aside>*/}
             </div>
         </div>
 
