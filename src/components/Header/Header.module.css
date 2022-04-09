@@ -95,3 +95,10 @@
     width: 40px;
     border-radius: 50%;
 }
+.loginBlock{
+    display: inline-flex;
+    align-items: center;
+}
+.loginBlock button{
+    margin-left: 15px;
+}

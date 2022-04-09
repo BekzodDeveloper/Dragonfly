@@ -13,7 +13,7 @@ import Login from "./components/Login/Login";
 
 
 const App = () => {
-
+    // const shouldRedirect = false;
     return (
         <div className="app-wrapper">
 
@@ -25,6 +25,7 @@ const App = () => {
 
                 <div className="app-content">
                     <Routes>
+                        <Route index element={<Home/>}/>
                         <Route path='/' element={<Home/>}/>
 
                         <Route exact path='/profile'

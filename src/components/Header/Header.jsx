@@ -32,12 +32,16 @@ const Header = (props) => {
 
                 </div>
                 <div className={styles.account}>
-                    {props.isAuth ? <NavLink to={"/profile"} className={styles.accountInner}>
-                            <div className={styles.accountImgWrapper}>
-                                <img className={styles.accountImg} src={accountImg} alt="accountImg"/>
-                            </div>
-                            <div className={styles.accountName}>{props.login}</div>
-                        </NavLink>
+                    {props.isAuth ?
+                        <div className={styles.loginBlock}>
+                            <NavLink to={"/profile"} className={styles.accountInner}>
+                                <div className={styles.accountImgWrapper}>
+                                    <img className={styles.accountImg} src={accountImg} alt="accountImg"/>
+                                </div>
+                                <div className={styles.accountName}>{props.login}</div>
+                            </NavLink>
+                            <button onClick={props.logout}>Logout</button>
+                        </div>
                         : <div>
                             <NavLink to='/login'>Login</NavLink>
                         </div>

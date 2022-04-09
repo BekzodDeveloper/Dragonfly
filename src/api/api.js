@@ -17,10 +17,10 @@ export const usersAPI = {
         }
     },
     profileAPI = {
-        getProfile(userId = 7255) {
+        getProfile(userId) {
             return instance.get(`profile/${userId}`);
         },
-        getUserStatus(userId = 7255) {
+        getUserStatus(userId) {
             return instance.get(`profile/status/${userId}`)
         },
         updateUserStatus(status) {
@@ -29,6 +29,12 @@ export const usersAPI = {
     },
     authAPI = {
         me() {
-            return instance.get(`auth/me/`);
-        }
+            return instance.get(`auth/me`);
+        },
+        login(email, password, rememberMe) {
+            return instance.post(`auth/login`, {email, password, rememberMe});
+        },
+        logout() {
+            return instance.delete(`auth/login`);
+        },
     };
