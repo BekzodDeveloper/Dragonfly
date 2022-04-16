@@ -19,7 +19,7 @@ const LoginForm = (props) => {
                 <Field name="password" validate={required} component={Input} type="password" placeholder="Password"/>
             </div>
             <div className={styles.rememberMe}>
-                <Field name="rememberMe" component={Input} type="checkbox" id="rememberMe"/> <label for="rememberMe">Remember
+                <Field name="rememberMe" component={Input} type="checkbox" id="rememberMe"/> <label htmlFor="rememberMe">Remember
                 me</label>
             </div>
             {props.error &&

@@ -20,6 +20,12 @@ p,ul,li{
     background-color: #E5E5E5;
 
 }
+.preloader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
 .app-body{
     max-width: 1400px;
     margin: 60px auto 0px;

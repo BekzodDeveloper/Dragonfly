@@ -18,7 +18,7 @@ let initialState = {
     followingInProgress: []
 };
 
-const usersReducer = (state = initialState, action) => {
+const   usersReducer = (state = initialState, action) => {
     switch (
         action.type
         ) {
