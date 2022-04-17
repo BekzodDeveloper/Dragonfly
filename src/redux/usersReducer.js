@@ -89,10 +89,10 @@ export const applyFollow = (userId) => ({type: FOLLOW, userId}),
         userId
     });
 
-export const getUsers = (currentPage, pageSize) => {
+export const requestUsers = (currentPage, pageSize) => {
         return (dispatch) => {
             dispatch(toggleIsFetching(true));
-            usersAPI.getUsers(currentPage, pageSize).then(response => {
+            usersAPI.requestUsers(currentPage, pageSize).then(response => {
                 dispatch(toggleIsFetching(false));
                 dispatch(setUsers(response.data.items));
                 dispatch(setTotalUsersCount(response.data.totalCount));
