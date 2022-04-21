@@ -3,6 +3,7 @@ import styles from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
 import accountImg from "./../../../assets/Profile/avatar-profile.png";
 import ProfileStatus from "./ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
     // debugger
@@ -40,7 +41,7 @@ const ProfileInfo = (props) => {
                     </div>
                     <div className={styles.status}>
                         <div><span>Looking for a job: </span>{props.profileInfoData.lookingForAJob ? 'Yes' : 'No'}</div>
-                        <ProfileStatus status={props.status} updateUserStatus={props.updateUserStatus}/>
+                        <ProfileStatusWithHooks status={props.status} updateUserStatus={props.updateUserStatus}/>
                     </div>
                     <div className={styles.contacts}>
                         <div>
